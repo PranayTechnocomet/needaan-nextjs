@@ -3988,9 +3988,9 @@ figure {
 }
 
 .testimonial-slider-mask {
-  max-width: 31%;
+  max-width: 100%;
   margin-left: 10px;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .testimonial-slider-item {
@@ -7417,7 +7417,7 @@ figure {
   }
 
   .testimonial-slider-mask {
-    max-width: 31.2%;
+    max-width: 100%;
     margin-left: 13px;
   }
 
@@ -8164,7 +8164,7 @@ figure {
   }
 
   .testimonial-slider-mask {
-    max-width: 31.4%;
+    max-width: 100%;
   }
 
   .testimonial-slider-card {
@@ -9166,7 +9166,7 @@ figure {
   }
 
   .testimonial-slider-mask {
-    max-width: 31%;
+    max-width: 100%;
   }
 
   .testimonial-slider-item {
@@ -9941,7 +9941,7 @@ figure {
   }
 
   .testimonial-slider-mask {
-    max-width: 47%;
+    max-width: 100%;
   }
 
   .testimonial-slider-card {
@@ -10910,7 +10910,7 @@ figure {
   }
 
   .testimonial-slider-mask {
-    max-width: 390px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 80px;

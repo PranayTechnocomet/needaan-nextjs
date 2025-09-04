@@ -22,6 +22,7 @@ import Start from '../assets/image/Start.png'
 import StartBlank from '../assets/image/StarBlank.png'
 import CardsSine from '../assets/image/CardsSine.png'
 import WorriesMind from '../assets/image/WorriesMind.webp'
+import TestimonialSlider from "./TestimonialsSlider";
 
 
 
@@ -41,7 +42,7 @@ export default function Home() {
                         <div className="w-layout-blockcontainer container w-container">
                             <div className="hero-section-two-wrapper">
                                 <div className="hero-one-content-wrap">
-                                    <h2 data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f6e" className="hero-title two">Stop Guessing. <span className="hero-title-span">Start Knowing. </span>Your Very Own AI Symptom Checker.</h2>
+                                    <h2 data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f6e" className="hero-title two">Stop Guessing <span className="hero-title-span">Start Knowing </span>Your Very Own AI Symptom Checker.</h2>
                                     <p data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f73" className="hero-title-description">
                                         Our advanced AI analyzes your symptoms in seconds to suggest possible causes and tells you exactly which type of doctor you need to see.</p>
                                     <div data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f75" className="appointment-button-wrap"><a
@@ -238,13 +239,13 @@ export default function Home() {
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d186e76ca432aa06097fd7_Top-to-right-stroke.svg"
                                         loading="lazy" alt="Border Stroke" className="top-to-right-border-stroke" /> */}
                                     <svg xmlns="http://www.w3.org/2000/svg" width="335" height="288" loading="lazy" alt="Border Stroke" className="top-to-right-border-stroke" viewBox="0 0 335 288" fill="none">
-                                        <path opacity="0.2" fillRule="evenodd" clip-rule="evenodd" d="M262.978 43.0321H4.10156C1.89242 43.0321 0.101562 41.2412 0.101562 39.0321V4C0.101562 1.79086 1.89243 0 4.10156 0H262.978C302.754 0 334.999 28.8992 334.999 64.5481V283.239C334.999 285.448 333.208 287.239 330.999 287.239H290.985C288.776 287.239 286.985 285.448 286.985 283.239V64.5481C286.985 52.6651 276.237 43.0321 262.978 43.0321Z" fill="#43BA7F" />
+                                        <path opacity="0.2" fillRule="evenodd" clipRule="evenodd" d="M262.978 43.0321H4.10156C1.89242 43.0321 0.101562 41.2412 0.101562 39.0321V4C0.101562 1.79086 1.89243 0 4.10156 0H262.978C302.754 0 334.999 28.8992 334.999 64.5481V283.239C334.999 285.448 333.208 287.239 330.999 287.239H290.985C288.776 287.239 286.985 285.448 286.985 283.239V64.5481C286.985 52.6651 276.237 43.0321 262.978 43.0321Z" fill="#43BA7F" />
                                     </svg>
                                     {/* <img
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d187e1602917df17114820_Left-to-bottom-stroke.svg"
                                         loading="lazy" alt="Border Stroke" className="left-to-bottom-border-stroke" /> */}
                                     <svg xmlns="http://www.w3.org/2000/svg" width="335" height="288" loading="lazy" alt="Border Stroke" className="left-to-bottom-border-stroke" viewBox="0 0 335 288" fill="none">
-                                        <path opacity="0.2" fillRule="evenodd" clip-rule="evenodd" d="M72.0221 244.968L330.898 244.968C333.108 244.968 334.898 246.759 334.898 248.968L334.898 284C334.898 286.209 333.108 288 330.898 288L72.0221 288C32.2461 288 0.00122352 259.101 0.001227 223.452L0.00124833 4.76114C0.00124855 2.55201 1.79211 0.761143 4.00125 0.761144L44.0152 0.761147C46.2243 0.761147 48.0152 2.55201 48.0152 4.76115L48.0151 223.452C48.0151 235.335 58.7634 244.968 72.0221 244.968Z" fill="#43BA7F" />
+                                        <path opacity="0.2" fillRule="evenodd" clipRule="evenodd" d="M72.0221 244.968L330.898 244.968C333.108 244.968 334.898 246.759 334.898 248.968L334.898 284C334.898 286.209 333.108 288 330.898 288L72.0221 288C32.2461 288 0.00122352 259.101 0.001227 223.452L0.00124833 4.76114C0.00124855 2.55201 1.79211 0.761143 4.00125 0.761144L44.0152 0.761147C46.2243 0.761147 48.0152 2.55201 48.0152 4.76115L48.0151 223.452C48.0151 235.335 58.7634 244.968 72.0221 244.968Z" fill="#43BA7F" />
                                     </svg>
                                     {/* <img
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d18bc014a8e354f16c8427_about-us-banner-dotted.svg"
@@ -357,7 +358,7 @@ export default function Home() {
                                                                 className="department-name-link w-inline-block">
                                                                 <h3 className="department-name">Instant Symptom Analysis</h3>
                                                             </a>
-                                                                <p className="department-short-details two">Our AI symptom checker processes your health concerns in real-time, providing you with immediate, intelligent insights into potential causes from its vast database.
+                                                                <p className="department-short-details two">Our AI symptom checker processes your health concerns in real-time, providing you with intelligent insights into potential causes from a vast database.
                                                                 </p>
                                                                 <div className="learn-more-wrap"><a href="#"
                                                                     className="learn-more-link-wrap w-inline-block">
@@ -428,9 +429,9 @@ export default function Home() {
 
                                                             <div className="department-slider-content"><a href="#"
                                                                 className="department-name-link w-inline-block">
-                                                                <h3 className="department-name">Anonymous Symptom Checker</h3>
+                                                                <h3 className="department-name"> Your Private Checker </h3>
                                                             </a>
-                                                                <p className="department-short-details two">This AI symptom checker is 100% private and free. No accounts or sign-ups are ever needed, ensuring your health queries remain confidential.
+                                                                <p className="department-short-details two">This AI symptom checker is 100% private. No accounts or sign-ups are needed, ensuring all of your personal health queries remain confidential.
                                                                 </p>
                                                                 <div className="learn-more-wrap"><a href="#"
                                                                     className="learn-more-link-wrap w-inline-block">
@@ -886,7 +887,8 @@ export default function Home() {
                                 <div className="section-sub-title">Testimonials</div>
                                 <h2 className="section-title text-center">{"Real Stories From People We've Helped"}</h2>
                             </div>
-                            <div className="testimonial-slider-wrapper">
+                            <TestimonialSlider />
+                            {/* <div className="testimonial-slider-wrapper">
                                 <div data-delay="2000" data-animation="slide" className="testimonial-slider w-slider" data-autoplay="true"
                                     data-easing="ease" data-hide-arrows="true" data-disable-swipe="false"
                                     data-w-id="0e9830d1-3f44-d20d-f744-1a13471ce635" data-autoplay-limit="0" data-nav-spacing="0"
@@ -937,7 +939,7 @@ export default function Home() {
                                                             loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
                                                                 src={Start}
                                                                 loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
-                                                                    src={Start}
+                                                                    src={StartBlank}
                                                                     loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
                                                                         src={StartBlank}
                                                                         loading="lazy" alt="Star Icon" className="star-icon" /></div>
@@ -956,7 +958,7 @@ export default function Home() {
                                                     <div className="testimonail-patient-name">Anjali M.</div>
                                                     <div className="patient-designation">University Student
                                                     </div>
-                                                    <p className="department-short-details">{"As a student, I can't afford multiple doctor visits. This tool gave me a free, anonymous first step. It was so fast and helped me decide what to do next."}</p>
+                                                    <p className="department-short-details">{"As a student, I can't afford multiple doctor visits. This tool gave me a much-needed, totally free, anonymous first step. It was so fast and helped me decide exactly what to do next."}</p>
                                                     <div className="patient-star-review-block"><Image height={18} width={19}
                                                         src={Start}
                                                         loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
@@ -982,7 +984,7 @@ export default function Home() {
                                                 <div className="testimonail-slider-content">
                                                     <div className="testimonail-patient-name">David L.</div>
                                                     <div className="patient-designation">Small Business Owner</div>
-                                                    <p className="department-short-details">I was skeptical about an AI, but the accuracy was impressive. It provided a logical breakdown of my symptoms without any scary jargon. A genuinely useful service for getting quick health guidance.
+                                                    <p className="department-short-details">I was skeptical about an AI, but the accuracy was impressive. It provided a logical breakdown of my symptoms without scary jargon. A useful service for getting quick health guidance.
                                                     </p>
                                                     <div className="patient-star-review-block"><Image height={18} width={19}
                                                         src={Start}
@@ -991,10 +993,13 @@ export default function Home() {
                                                             loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
                                                                 src={Start}
                                                                 loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
-                                                                    src={Start}
-                                                                    loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                    src={StartBlank}
+                                                                    loading="lazy" alt="Star Icon" className="star-icon" />
+                                                                    <Image height={18} width={19}
                                                                         src={StartBlank}
-                                                                        loading="lazy" alt="Star Icon" className="star-icon" /></div>
+                                                                        loading="lazy" alt="Star Icon" className="star-icon" />
+                                                                        
+                                                                        </div>
                                                 </div>
                                                 <div className="testimonial-card-hover-shadow"></div><Image width={82} height={70}
                                                     src={CardsSine}
@@ -1017,9 +1022,11 @@ export default function Home() {
                                                             src={Start}
                                                             loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
                                                                 src={Start}
-                                                                loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
-                                                                    src={Start}
-                                                                    loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                loading="lazy" alt="Star Icon" className="star-icon" />
+                                                                <Image height={18} width={19}
+                                                                        src={Start}
+                                                                        loading="lazy" alt="Star Icon" className="star-icon" />
+                                                                    <Image height={18} width={19}
                                                                         src={StartBlank}
                                                                         loading="lazy" alt="Star Icon" className="star-icon" /></div>
                                                 </div>
@@ -1036,7 +1043,7 @@ export default function Home() {
                                                 <div className="testimonail-slider-content">
                                                     <div className="testimonail-patient-name">Raj V. </div>
                                                     <div className="patient-designation">IT Professional</div>
-                                                    <p className="department-short-details">{"This isn't a diagnosis, and it doesn't pretend to be. It's an intelligent guide that pointed me in the right direction. An essential first step before seeing a doctor."}
+                                                    <p className="department-short-details">{"This isn't a diagnosis, and it doesn't pretend to be. It's an intelligent guide that pointed me in the exact right direction. An essential first step to take before seeing a doctor."}
                                                     </p>
                                                     <div className="patient-star-review-block"><Image height={18} width={19}
                                                         src={Start}
@@ -1045,7 +1052,7 @@ export default function Home() {
                                                             loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
                                                                 src={Start}
                                                                 loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
-                                                                    src={Start}
+                                                                    src={StartBlank}
                                                                     loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
                                                                         src={StartBlank}
                                                                         loading="lazy" alt="Star Icon" className="star-icon" /></div>
@@ -1055,27 +1062,10 @@ export default function Home() {
                                                     loading="lazy" alt="Dotted Icon" className="testimonial-dotted-image" />
                                             </div>
                                         </div>
-
                                     </div>
-                                    {/* <div className="testimonial-slider-arrow left w-slider-arrow-left">
-                                        <div className="department-slider-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                            height="20" viewBox="0 0 20 20" fill="none">
-                                            <path
-                                                d="M6.66586 9.99995C6.66523 9.89028 6.68625 9.78156 6.72772 9.68003C6.76919 9.5785 6.83029 9.48615 6.90753 9.40828L11.9075 4.40828C12.0644 4.25136 12.2773 4.16321 12.4992 4.16321C12.7211 4.16321 12.9339 4.25136 13.0909 4.40828C13.2478 4.5652 13.3359 4.77803 13.3359 4.99995C13.3359 5.22187 13.2478 5.4347 13.0909 5.59162L8.67419 9.99995L13.0825 14.4083C13.219 14.5677 13.2904 14.7728 13.2823 14.9825C13.2742 15.1922 13.1872 15.3912 13.0388 15.5396C12.8904 15.688 12.6915 15.7749 12.4817 15.783C12.272 15.7911 12.0669 15.7198 11.9075 15.5833L6.90753 10.5833C6.75357 10.4281 6.66678 10.2186 6.66586 9.99995Z"
-                                                fill="currentcolor" />
-                                        </svg></div>
-                                    </div>
-                                    <div className="testimonial-slider-arrow right w-slider-arrow-right">
-                                        <div className="department-slider-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                            height="20" viewBox="0 0 20 20" fill="none">
-                                            <path
-                                                d="M13.3341 10C13.3348 10.1097 13.3138 10.2184 13.2723 10.32C13.2308 10.4215 13.1697 10.5138 13.0925 10.5917L8.09247 15.5917C7.93555 15.7486 7.72272 15.8368 7.50081 15.8368C7.27889 15.8368 7.06606 15.7486 6.90914 15.5917C6.75222 15.4348 6.66406 15.222 6.66406 15C6.66406 14.7781 6.75222 14.5653 6.90914 14.4084L11.3258 10L6.91747 5.59172C6.78095 5.4323 6.70961 5.22723 6.71771 5.0175C6.72581 4.80777 6.81276 4.60882 6.96117 4.46041C7.10958 4.312 7.30853 4.22506 7.51826 4.21696C7.72799 4.20886 7.93305 4.28019 8.09247 4.41672L13.0925 9.41672C13.2464 9.57193 13.3332 9.78143 13.3341 10Z"
-                                                fill="currentColor" />
-                                        </svg></div>
-                                    </div> */}
-                                    <div className="slider-hidden-nav w-slider-nav w-round w-num"></div>
                                 </div>
-                            </div>
+                            </div> */}
+                            {/* <TestimonialSlider /> */}
                         </div>
                     </section>
 

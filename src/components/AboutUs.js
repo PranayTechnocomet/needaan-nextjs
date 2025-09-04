@@ -71,7 +71,7 @@ export default function AboutUs() {
                     <section className="about-hero-section section-gap-y-axis-140px">
                         <div className="w-layout-blockcontainer container w-container">
                             <div className="about-hero-wrapper">
-                                <h2 className="section-title about-hero">AI Health Guidance: Bridging the Gap Between Worry and Wellness</h2>
+                                <h2 className="section-title about-hero">AI Health Guidance: From Worry and Wellness.</h2>
                                 <p data-w-id="27e0852a-c8d0-6d59-dc4b-c74a8e684451" className="about-hero-description"> In a world flooded with conflicting health information, finding a clear first step can feel impossible. The anxiety of an unknown symptom is often made worse by online searches. needan was born from a simple idea: to provide a smart and reliable tool for AI health guidance that cuts through the noise.</p>
                                 <div data-w-id="6a9c1d10-f8a2-ce17-91ee-d9d49218fad6"
                                     className="about-hero-banner-image-wrap margin-top-60px">
@@ -194,7 +194,7 @@ export default function AboutUs() {
                                         <li className="our-mission-list-item">Guide users toward the correct medical specialist.</li>
                                         <li className="our-mission-list-item">Uphold absolute user privacy and anonymity.</li>
                                         <li className="our-mission-list-item">Make the first step in healthcare simple and free.</li>
-                                    </ul><a data-w-id="2ce5961f-57e4-6920-6580-d6901d287cd0" href="appointment.html"
+                                    </ul><a data-w-id="2ce5961f-57e4-6920-6580-d6901d287cd0" href=""
                                         className="button-outline margin-top-60px w-button">Book Appointment</a>
                                 </div>
                                 <div id="w-node-_109d2318-2215-b080-3ffc-73dd27e469e9-d496e63b"
@@ -390,16 +390,25 @@ export default function AboutUs() {
 
                                         sizes="(max-width: 479px) 94vw, (max-width: 767px) 450px, (max-width: 991px) 331.1875px, (max-width: 1279px) 460.796875px, (max-width: 1439px) 561.59375px, (max-width: 1919px) 600px, 691.1875px"
                                         srcSet="https://assets-global.website-files.com/65c992c37023d69385565acc/65cca34667321a9a91919866_CTA-banner-p-500.jpg 500w, https://assets-global.website-files.com/65c992c37023d69385565acc/65cca34667321a9a91919866_CTA-banner.jpg 700w"
-                                        alt="CTA Banner" className="cta-banner-image" /></div>
+                                        alt="CTA Banner" className="cta-banner-image" />
+                                </div>
                                 <div className="cta-content-wrap">
                                     <div className="cta-content">
                                         <h2 className="cta-section-title cta">Take the First Step Toward Peace of Mind</h2>
-                                        <div className="button-primary-wrap"><a href="appointment.html" className="button-primary white w-button">Start Your Free Analysis Now</a></div>
-                                    </div><Image height={189} width={189}
+                                        <div className="button-primary-wrap"><a href="" className="button-primary white w-button">Start Your Free Analysis Now</a></div>
+                                    </div>
+                                    <Image height={189} width={189}
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d2f7ff8848a6206e4f1a66_CTA-bottom-pluse-vector.svg"
-                                        loading="lazy" alt="Vector" className="cta-vector-shape" /><Image height={60} width={60}
-                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d2f8650e915364420906c0_CTA-top-ellipse-shape.svg"
-                                            loading="lazy" alt="Ellipse Shape" className="cta-ellipse-shape" />
+                                        loading="lazy" alt="Vector" className="cta-vector-shape" />
+
+                                    {/* <Image height={67} width={134}
+                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d2f8650e915364420906c0_CTA-top-ellipse-shape.svg"
+                                        loading="lazy" alt="Ellipse Shape" className="cta-ellipse-shape" /> */}
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="67" height="134" loading="lazy" alt="Ellipse Shape" className="cta-ellipse-shape" viewBox="0 0 67 134" fill="none">
+                                        <path opacity="0.2" d="M67 67C58.2014 67 49.489 65.267 41.3602 61.8999C33.2314 58.5329 25.8454 53.5977 19.6239 47.3762C13.4023 41.1546 8.46714 33.7686 5.10008 25.6398C1.73301 17.511 6.64273e-07 8.79857 0 5.05836e-06L67 0L67 67Z" fill="white" />
+                                        <path opacity="0.2" d="M2.92866e-06 134C8.79857 134 17.511 132.267 25.6398 128.9C33.7686 125.533 41.1546 120.598 47.3762 114.376C53.5977 108.155 58.5329 100.769 61.8999 92.6398C65.267 84.511 67 75.7986 67 67L0 67L2.92866e-06 134Z" fill="white" />
+                                    </svg>
                                 </div>
                             </div>
                         </div>
