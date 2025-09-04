@@ -5,6 +5,24 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import '@/style/yourself.css'
 import Footer from "./Footer";
 import NavBar from "./NavBar";
+import Image from "next/image";
+import Doctor from '../assets/image/Doctor.png'
+import AboutUs from '../assets/image/AboutUs.jpg'
+import Cards1 from '../assets/image/Cards1.png'
+import Cards2 from '../assets/image/Cards2.png'
+import Cards3 from '../assets/image/Cards3.png'
+import Cards4 from '../assets/image/Cards4.png'
+import Doctors1 from '../assets/image/Doctors1.jpg'
+import Doctors2 from '../assets/image/Doctors2.jpg'
+import Doctors3 from '../assets/image/Doctors3.jpg'
+import Doctors4 from '../assets/image/Doctors4.jpg'
+import Doctors5 from '../assets/image/Doctors5.jpg'
+import Doctors6 from '../assets/image/Doctors6.jpg'
+import Start from '../assets/image/Start.png'
+import StartBlank from '../assets/image/StarBlank.png'
+import CardsSine from '../assets/image/CardsSine.png'
+import WorriesMind from '../assets/image/WorriesMind.webp'
+
 
 
 
@@ -14,6 +32,7 @@ export default function Home() {
 
 
     return (
+
         <>
             <main id="Scroll-Top" className="page-wrapper">
                 <NavBar />
@@ -22,7 +41,7 @@ export default function Home() {
                         <div className="w-layout-blockcontainer container w-container">
                             <div className="hero-section-two-wrapper">
                                 <div className="hero-one-content-wrap">
-                                    <h1 data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f6e" className="hero-title two">Stop Guessing. <span className="hero-title-span">Start Knowing. </span>Your Very Own AI Symptom Checker.</h1>
+                                    <h2 data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f6e" className="hero-title two">Stop Guessing. <span className="hero-title-span">Start Knowing. </span>Your Very Own AI Symptom Checker.</h2>
                                     <p data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f73" className="hero-title-description">
                                         Our advanced AI analyzes your symptoms in seconds to suggest possible causes and tells you exactly which type of doctor you need to see.</p>
                                     <div data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f75" className="appointment-button-wrap"><a
@@ -84,13 +103,50 @@ export default function Home() {
                                 <div id="w-node-a383da0b-f6f3-e922-ba61-f758fca78fa1-b42bc025"
                                     data-w-id="a383da0b-f6f3-e922-ba61-f758fca78fa1" className="hero-two-banner-wrap">
                                     <div data-w-id="65f2a5bc-ad83-81e7-d4e6-35d3482a1567" className="home-two-banner-bg">
-                                        <div className="hero-image-block-two"><img
-                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cddeceb8f6021490967cf8_hero-banner-img-two.png"
+                                        <div className="hero-image-block-two"><Image width={500} height={608}
+                                            src={Doctor}
                                             loading="lazy" alt="Hero Image" className="hero-image-two" /></div>
-                                    </div><img
+                                    </div>
+                                    {/* <Image height={120} width={105}
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cdeabade11b1fef5a973bc_Hero-two-dotted-shape.svg"
                                         loading="lazy" data-w-id="1dc80929-60cb-8bbe-1aa6-9ee890dd6f0d" alt="Dotted Shape"
-                                        className="hero-two-dotted-shape" />
+                                        className="hero-two-dotted-shape" /> */}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="166" height="146" alt="Dotted Shape"
+                                        className="hero-two-dotted-shape" viewBox="0 0 166 146" fill="none">
+                                        <g opacity="0.5">
+                                            <circle cx="161.804" cy="141.964" r="3.75615" transform="rotate(-180 161.804 141.964)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="114.452" r="3.75615" transform="rotate(-180 161.804 114.452)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="86.9397" r="3.75615" transform="rotate(-180 161.804 86.9397)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="59.4274" r="3.75615" transform="rotate(-180 161.804 59.4274)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="31.9152" r="3.75615" transform="rotate(-180 161.804 31.9152)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="4.40278" r="3.75615" transform="rotate(-180 161.804 4.40278)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="141.964" r="3.75615" transform="rotate(-180 122.293 141.964)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="114.452" r="3.75615" transform="rotate(-180 122.293 114.452)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="86.9397" r="3.75615" transform="rotate(-180 122.293 86.9397)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="59.4274" r="3.75615" transform="rotate(-180 122.293 59.4274)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="31.9152" r="3.75615" transform="rotate(-180 122.293 31.9152)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="4.40278" r="3.75615" transform="rotate(-180 122.293 4.40278)" fill="#43BA7F" />
+                                            <circle cx="82.779" cy="141.964" r="3.75615" transform="rotate(-180 82.779 141.964)" fill="#43BA7F" />
+                                            <circle cx="82.781" cy="114.452" r="3.75615" transform="rotate(-180 82.781 114.452)" fill="#43BA7F" />
+                                            <circle cx="82.779" cy="86.9397" r="3.75615" transform="rotate(-180 82.779 86.9397)" fill="#43BA7F" />
+                                            <circle cx="82.779" cy="59.4274" r="3.75615" transform="rotate(-180 82.779 59.4274)" fill="#43BA7F" />
+                                            <circle cx="82.781" cy="31.9152" r="3.75615" transform="rotate(-180 82.781 31.9152)" fill="#43BA7F" />
+                                            <circle cx="82.781" cy="4.40303" r="3.75615" transform="rotate(-180 82.781 4.40303)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="141.964" r="3.75615" transform="rotate(-180 43.2673 141.964)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="114.452" r="3.75615" transform="rotate(-180 43.2673 114.452)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="86.9397" r="3.75615" transform="rotate(-180 43.2673 86.9397)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="59.4274" r="3.75615" transform="rotate(-180 43.2673 59.4274)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="31.9152" r="3.75615" transform="rotate(-180 43.2673 31.9152)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="4.40303" r="3.75615" transform="rotate(-180 43.2673 4.40303)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="141.964" r="3.75615" transform="rotate(-180 3.75557 141.964)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="114.452" r="3.75615" transform="rotate(-180 3.75557 114.452)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="86.9394" r="3.75615" transform="rotate(-180 3.75557 86.9394)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="59.4272" r="3.75615" transform="rotate(-180 3.75557 59.4272)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="31.915" r="3.75615" transform="rotate(-180 3.75557 31.915)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="4.40278" r="3.75615" transform="rotate(-180 3.75557 4.40278)" fill="#43BA7F" />
+                                        </g>
+                                    </svg>
+
                                 </div>
                             </div>
                         </div>
@@ -170,18 +226,66 @@ export default function Home() {
                                 </div>
                                 <div id="w-node-f2cecc8a-2cdc-f642-d55c-2ee7f6f22443-b42bc025"
                                     data-w-id="f2cecc8a-2cdc-f642-d55c-2ee7f6f22443" className="about-us-banner-image-two-wrap">
-                                    <img
-                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d18632757eed4184b5f9b1_about-banner.jpg"
+                                    <Image
+                                        src={AboutUs}
+                                        height={645} width={594}
                                         loading="lazy"
                                         sizes="(max-width: 479px) 100vw, (max-width: 767px) 77vw, (max-width: 991px) 552px, (max-width: 1279px) 440px, (max-width: 1439px) 555.75px, (max-width: 1919px) 593.75px, 623px"
                                         srcSet="https://assets-global.website-files.com/65c992c37023d69385565acc/65d18632757eed4184b5f9b1_about-banner-p-500.jpg 500w, https://assets-global.website-files.com/65c992c37023d69385565acc/65d18632757eed4184b5f9b1_about-banner.jpg 623w"
-                                        alt="Banner Image" className="about-us-banner-image" /><img
+                                        alt="Banner Image" className="about-us-banner-image" />
+
+                                    {/* <img
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d186e76ca432aa06097fd7_Top-to-right-stroke.svg"
-                                        loading="lazy" alt="Border Stroke" className="top-to-right-border-stroke" /><img
+                                        loading="lazy" alt="Border Stroke" className="top-to-right-border-stroke" /> */}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="335" height="288" loading="lazy" alt="Border Stroke" className="top-to-right-border-stroke" viewBox="0 0 335 288" fill="none">
+                                        <path opacity="0.2" fillRule="evenodd" clip-rule="evenodd" d="M262.978 43.0321H4.10156C1.89242 43.0321 0.101562 41.2412 0.101562 39.0321V4C0.101562 1.79086 1.89243 0 4.10156 0H262.978C302.754 0 334.999 28.8992 334.999 64.5481V283.239C334.999 285.448 333.208 287.239 330.999 287.239H290.985C288.776 287.239 286.985 285.448 286.985 283.239V64.5481C286.985 52.6651 276.237 43.0321 262.978 43.0321Z" fill="#43BA7F" />
+                                    </svg>
+                                    {/* <img
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d187e1602917df17114820_Left-to-bottom-stroke.svg"
-                                        loading="lazy" alt="Border Stroke" className="left-to-bottom-border-stroke" /><img
+                                        loading="lazy" alt="Border Stroke" className="left-to-bottom-border-stroke" /> */}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="335" height="288" loading="lazy" alt="Border Stroke" className="left-to-bottom-border-stroke" viewBox="0 0 335 288" fill="none">
+                                        <path opacity="0.2" fillRule="evenodd" clip-rule="evenodd" d="M72.0221 244.968L330.898 244.968C333.108 244.968 334.898 246.759 334.898 248.968L334.898 284C334.898 286.209 333.108 288 330.898 288L72.0221 288C32.2461 288 0.00122352 259.101 0.001227 223.452L0.00124833 4.76114C0.00124855 2.55201 1.79211 0.761143 4.00125 0.761144L44.0152 0.761147C46.2243 0.761147 48.0152 2.55201 48.0152 4.76115L48.0151 223.452C48.0151 235.335 58.7634 244.968 72.0221 244.968Z" fill="#43BA7F" />
+                                    </svg>
+                                    {/* <img
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d18bc014a8e354f16c8427_about-us-banner-dotted.svg"
-                                        loading="lazy" alt="Dotted Shape" className="about-banner-dotter-shape" /></div>
+                                        loading="lazy" alt="Dotted Shape" className="about-banner-dotter-shape" /> */}
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="166" height="146" viewBox="0 0 166 146" loading="lazy" alt="Dotted Shape" className="about-banner-dotter-shape" fill="none">
+                                        <g opacity="0.5">
+                                            <circle cx="161.804" cy="142.23" r="3.75615" transform="rotate(-180 161.804 142.23)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="114.721" r="3.75615" transform="rotate(-180 161.804 114.721)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="87.2115" r="3.75615" transform="rotate(-180 161.804 87.2115)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="59.702" r="3.75615" transform="rotate(-180 161.804 59.702)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="32.1926" r="3.75615" transform="rotate(-180 161.804 32.1926)" fill="#43BA7F" />
+                                            <circle cx="161.804" cy="4.68294" r="3.75615" transform="rotate(-180 161.804 4.68294)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="142.23" r="3.75615" transform="rotate(-180 122.293 142.23)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="114.721" r="3.75615" transform="rotate(-180 122.293 114.721)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="87.2115" r="3.75615" transform="rotate(-180 122.293 87.2115)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="59.702" r="3.75615" transform="rotate(-180 122.293 59.702)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="32.1926" r="3.75615" transform="rotate(-180 122.293 32.1926)" fill="#43BA7F" />
+                                            <circle cx="122.293" cy="4.68294" r="3.75615" transform="rotate(-180 122.293 4.68294)" fill="#43BA7F" />
+                                            <circle cx="82.779" cy="142.23" r="3.75615" transform="rotate(-180 82.779 142.23)" fill="#43BA7F" />
+                                            <circle cx="82.781" cy="114.721" r="3.75615" transform="rotate(-180 82.781 114.721)" fill="#43BA7F" />
+                                            <circle cx="82.779" cy="87.2115" r="3.75615" transform="rotate(-180 82.779 87.2115)" fill="#43BA7F" />
+                                            <circle cx="82.779" cy="59.702" r="3.75615" transform="rotate(-180 82.779 59.702)" fill="#43BA7F" />
+                                            <circle cx="82.781" cy="32.1926" r="3.75615" transform="rotate(-180 82.781 32.1926)" fill="#43BA7F" />
+                                            <circle cx="82.779" cy="4.68294" r="3.75615" transform="rotate(-180 82.779 4.68294)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="142.23" r="3.75615" transform="rotate(-180 43.2673 142.23)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="114.721" r="3.75615" transform="rotate(-180 43.2673 114.721)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="87.2115" r="3.75615" transform="rotate(-180 43.2673 87.2115)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="59.702" r="3.75615" transform="rotate(-180 43.2673 59.702)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="32.1926" r="3.75615" transform="rotate(-180 43.2673 32.1926)" fill="#43BA7F" />
+                                            <circle cx="43.2673" cy="4.68294" r="3.75615" transform="rotate(-180 43.2673 4.68294)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="142.23" r="3.75615" transform="rotate(-180 3.75557 142.23)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="114.721" r="3.75615" transform="rotate(-180 3.75557 114.721)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="87.2113" r="3.75615" transform="rotate(-180 3.75557 87.2113)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="59.7017" r="3.75615" transform="rotate(-180 3.75557 59.7017)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="32.1923" r="3.75615" transform="rotate(-180 3.75557 32.1923)" fill="#43BA7F" />
+                                            <circle cx="3.75557" cy="4.68269" r="3.75615" transform="rotate(-180 3.75557 4.68269)" fill="#43BA7F" />
+                                        </g>
+                                    </svg>
+
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -241,10 +345,11 @@ export default function Home() {
                                                 <div role="listitem" className="service-slider-list-item w-dyn-item">
                                                     <div className="department-slider-card-two">
                                                         <div className="department-slider-card-two-wrap">
-                                                            <div style={{ borderColor: "#3e87fa" }} className="department-icon-wrapper-two"><img
-                                                                alt="Department Icon" loading="lazy"
-                                                                src="https://cdn.prod.website-files.com/65cb4d1ed2f90340ed5047d9/65cb4fdfa696969bcb1763dd_gynecology.png"
-                                                                className="department-icon" />
+                                                            <div style={{ borderColor: "#3e87fa" }} className="department-icon-wrapper-two">
+                                                                <Image height={40} width={40}
+                                                                    alt="Department Icon" loading="lazy"
+                                                                    src={Cards1}
+                                                                    className="department-icon" />
                                                                 <div style={{ backgroundColor: "#3e87fa", }}
                                                                     className="department-icon-bg-color"></div>
                                                             </div>
@@ -278,9 +383,9 @@ export default function Home() {
                                                 <div role="listitem" className="service-slider-list-item w-dyn-item">
                                                     <div className="department-slider-card-two">
                                                         <div className="department-slider-card-two-wrap">
-                                                            <div style={{ borderColor: "#43ba7f" }} className="department-icon-wrapper-two"><img
+                                                            <div style={{ borderColor: "#43ba7f" }} className="department-icon-wrapper-two"><Image height={40} width={40}
                                                                 alt="Department Icon" loading="lazy"
-                                                                src="https://cdn.prod.website-files.com/65cb4d1ed2f90340ed5047d9/65cb4f8291d92075f40703f5_pediatrics.png"
+                                                                src={Cards2}
                                                                 className="department-icon" />
                                                                 <div style={{ backgroundColor: "#43ba7f" }} className="department-icon-bg-color"></div>
                                                             </div>
@@ -308,7 +413,44 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="service-slider-item-two w-slide ophthalmology-main">
+                                    <div className="service-slider-item-two w-slide gynecology-card">
+                                        <div className="department-slider-list-wrapper-two w-dyn-list">
+                                            <div role="list" className="department-slider-list-two w-dyn-items">
+                                                <div role="listitem" className="service-slider-list-item w-dyn-item">
+                                                    <div className="department-slider-card-two">
+                                                        <div className="department-slider-card-two-wrap">
+                                                            <div style={{ borderColor: "#fe706d" }} className="department-icon-wrapper-two"><Image height={40} width={40}
+                                                                alt="Department Icon" loading="lazy"
+                                                                src={Cards3}
+                                                                className="department-icon" />
+                                                                <div style={{ backgroundColor: "#fe706d" }} className="department-icon-bg-color"></div>
+                                                            </div>
+
+                                                            <div className="department-slider-content"><a href="#"
+                                                                className="department-name-link w-inline-block">
+                                                                <h3 className="department-name">Anonymous Symptom Checker</h3>
+                                                            </a>
+                                                                <p className="department-short-details two">This AI symptom checker is 100% private and free. No accounts or sign-ups are ever needed, ensuring your health queries remain confidential.
+                                                                </p>
+                                                                <div className="learn-more-wrap"><a href="#"
+                                                                    className="learn-more-link-wrap w-inline-block">
+                                                                    <div className="department-link-text">Discover Your Next Step</div>
+                                                                    <div className="learn-more-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                        width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                                        <path
+                                                                            d="M13.3341 10C13.3348 10.1097 13.3138 10.2184 13.2723 10.32C13.2308 10.4215 13.1697 10.5138 13.0925 10.5917L8.09247 15.5917C7.93555 15.7486 7.72272 15.8368 7.50081 15.8368C7.27889 15.8368 7.06606 15.7486 6.90914 15.5917C6.75222 15.4348 6.66406 15.222 6.66406 15C6.66406 14.7781 6.75222 14.5653 6.90914 14.4084L11.3258 10L6.91747 5.59172C6.78095 5.4323 6.70961 5.22723 6.71771 5.0175C6.72581 4.80777 6.81276 4.60882 6.96117 4.46041C7.10958 4.312 7.30853 4.22506 7.51826 4.21696C7.72799 4.20886 7.93305 4.28019 8.09247 4.41672L13.0925 9.41672C13.2464 9.57193 13.3332 9.78143 13.3341 10Z"
+                                                                            fill="currentcolor" />
+                                                                    </svg></div>
+                                                                </a></div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="department-card-hover-shadow"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* <div className="service-slider-item-two w-slide ophthalmology-main">
                                         <div className="department-slider-list-wrapper-two w-dyn-list">
                                             <div role="list" className="department-slider-list-two w-dyn-items">
                                                 <div role="listitem" className="service-slider-list-item w-dyn-item">
@@ -342,16 +484,16 @@ export default function Home() {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="service-slider-item-two w-slide ophthalmology-main">
                                         <div className="department-slider-list-wrapper-two w-dyn-list">
                                             <div role="list" className="department-slider-list-two w-dyn-items">
                                                 <div role="listitem" className="service-slider-list-item w-dyn-item">
                                                     <div className="department-slider-card-two">
                                                         <div className="department-slider-card-two-wrap">
-                                                            <div style={{ borderColor: "#2bb6f2" }} className="department-icon-wrapper-two"><img
+                                                            <div style={{ borderColor: "#2bb6f2" }} className="department-icon-wrapper-two"><Image height={40} width={40}
                                                                 alt="Department Icon" loading="lazy"
-                                                                src="https://cdn.prod.website-files.com/65cb4d1ed2f90340ed5047d9/65cb4ec699c1bc891353aa7d_neurology.png"
+                                                                src={Cards4}
                                                                 className="department-icon" />
                                                                 <div style={{ backgroundColor: "#2bb6f2" }} className="department-icon-bg-color"></div>
                                                             </div>
@@ -677,11 +819,11 @@ export default function Home() {
                         </div>
                     </div>
                 </section> */}
-                    <section className="quiz-section section">
+                    <section className="quiz-section section padding-bottom-115px">
                         <div className="w-layout-blockcontainer container-quiz w-container">
                             <div className="quiz-structure structure">
                                 <div className="quiz-image-border-radius">
-                                    <img src="https://cdn.prod.website-files.com/66e49f98dae3a34da3a9c3cc/67066987215392e5f7655df9_Woman%20thinking.webp" loading="lazy" alt="A woman with curly blonde hair, resting her head on her hand, gazing thoughtfully into the distance." className="quiz-image size" />
+                                    <Image src={WorriesMind} width={645} height={720} loading="lazy" alt="A woman with curly blonde hair, resting her head on her hand, gazing thoughtfully into the distance." className="quiz-image size" />
                                 </div>
                                 <div className="quiz-content-box padding">
                                     <div className="quiz-heading-margin-bottom margin-bottom-default">
@@ -711,7 +853,7 @@ export default function Home() {
                                             <div className="tag-emoji-background background-light">
                                                 <div className="tag-emoji-padding padding">
                                                     <div className="emoji-on-tag">🤔</div>
-                                                    <div className="tag-text-small quiz "><span className="yourself-cards-datas">I don't even know <br></br> which </span> type of <br></br> doctor to call.</div>
+                                                    <div className="tag-text-small quiz "><span className="yourself-cards-datas">{"I don't even know"} <br></br> which </span> type of <br></br> doctor to call.</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -720,7 +862,7 @@ export default function Home() {
                                         <div className="divider-line-dashed"></div>
                                     </div>
                                     <h3 className="h3-small ">Stop the worry and uncertainty with our intelligent, free AI Symptom Checker.</h3>
-                                    <p className="take-contetnt">If these thoughts feel familiar, you're not alone. Use our confidential chat to analyze your symptoms, understand potential causes, and learn which specialist to consult. It's fast and easy.
+                                    <p className="take-contetnt">{"If these thoughts feel familiar, you're not alone. Use our confidential chat to analyze your symptoms, understand potential causes, and learn which specialist to consult. It's fast and easy."}
                                     </p>
                                     <a href="#" className="button base w-inline-block take-quiz-btn">
                                         <div className="flex-no-gap align-y-center">
@@ -738,22 +880,22 @@ export default function Home() {
                     </section>
 
 
-                    <section className="testimonial-section padding-bottom-140px">
+                    <section className="testimonial-section padding-bottom-120px">
                         <div className="w-layout-blockcontainer container w-container">
                             <div className="section-title-wrap center">
                                 <div className="section-sub-title">Testimonials</div>
-                                <h2 className="section-title text-center">Real Stories From People We've Helped</h2>
+                                <h2 className="section-title text-center">{"Real Stories From People We've Helped"}</h2>
                             </div>
                             <div className="testimonial-slider-wrapper">
-                                <div data-delay="1500" data-animation="slide" className="testimonial-slider w-slider" data-autoplay="true"
+                                <div data-delay="2000" data-animation="slide" className="testimonial-slider w-slider" data-autoplay="true"
                                     data-easing="ease" data-hide-arrows="true" data-disable-swipe="false"
                                     data-w-id="0e9830d1-3f44-d20d-f744-1a13471ce635" data-autoplay-limit="0" data-nav-spacing="0"
                                     data-duration="800" data-infinite="true" data-loop="true">
                                     <div className="testimonial-slider-mask w-slider-mask">
                                         <div className="testimonial-slider-item w-slide">
                                             <div className="testimonial-slider-card">
-                                                <div className="patient-profile-wrapper"><img alt="Department Icon" loading="lazy"
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9375ba2d7622952ab204_Braden-dawais.jpg"
+                                                <div className="patient-profile-wrapper"><Image alt="Department Icon" loading="lazy"
+                                                    src={Doctors1} height={100} width={100}
                                                     className="patient-profile-image" /></div>
                                                 <div className="testimonail-slider-content">
                                                     <div className="testimonail-patient-name">Priya S.</div>
@@ -761,155 +903,155 @@ export default function Home() {
                                                     </div>
                                                     <p className="department-short-details">Googling my symptoms was terrifying. A friend suggested needan, and the relief was instant. It gave me a clear, calm list of possibilities and pointed me to the right specialist. Incredible tool!
                                                     </p>
-                                                    <div className="patient-star-review-block"><img
-                                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                        loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd981c219b88cc407d42c3_dark-star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /></div>
+                                                    <div className="patient-star-review-block"><Image height={18} width={19}
+                                                        src={Start}
+                                                        loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                            src={Start}
+                                                            loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                src={Start}
+                                                                loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                    src={Start}
+                                                                    loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                        src={StartBlank}
+                                                                        loading="lazy" alt="Star Icon" className="star-icon" /></div>
                                                 </div>
-                                                <div className="testimonial-card-hover-shadow"></div><img
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9d49c3cf2384bfcc4e92_dotted%20shape.png"
+                                                <div className="testimonial-card-hover-shadow"></div><Image width={82} height={70}
+                                                    src={CardsSine}
                                                     loading="lazy" alt="Dotted Icon" className="testimonial-dotted-image" />
                                             </div>
                                         </div>
                                         <div className="testimonial-slider-item w-slide">
                                             <div className="testimonial-slider-card">
-                                                <div className="patient-profile-wrapper"><img alt="Department Icon" loading="lazy"
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9778ffa57e62706862a8_Naliyen-lestie.jpg"
+                                                <div className="patient-profile-wrapper"><Image alt="Department Icon" loading="lazy"
+                                                    src={Doctors2} height={100} width={100}
                                                     className="patient-profile-image" /></div>
                                                 <div className="testimonail-slider-content">
                                                     <div className="testimonail-patient-name">Mark T. </div>
                                                     <div className="patient-designation">High School Teacher</div>
                                                     <p className="department-short-details">I had a weird mix of symptoms and no idea who to call. This AI checker analyzed everything and suggested a dermatologist. It was spot on. Saved me so much time.
                                                     </p>
-                                                    <div className="patient-star-review-block"><img
-                                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                        loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd981c219b88cc407d42c3_dark-star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd981c219b88cc407d42c3_dark-star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /></div>
+                                                    <div className="patient-star-review-block"><Image height={18} width={19}
+                                                        src={Start}
+                                                        loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                            src={Start}
+                                                            loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                src={Start}
+                                                                loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                    src={Start}
+                                                                    loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                        src={StartBlank}
+                                                                        loading="lazy" alt="Star Icon" className="star-icon" /></div>
                                                 </div>
-                                                <div className="testimonial-card-hover-shadow"></div><img
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9d49c3cf2384bfcc4e92_dotted%20shape.png"
+                                                <div className="testimonial-card-hover-shadow"></div><Image width={82} height={70}
+                                                    src={CardsSine}
                                                     loading="lazy" alt="Dotted Icon" className="testimonial-dotted-image" />
                                             </div>
                                         </div>
                                         <div className="testimonial-slider-item w-slide">
                                             <div className="testimonial-slider-card">
-                                                <div className="patient-profile-wrapper"><img alt="Department Icon" loading="lazy"
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd97c8a87fbf277fb8c6c3_Jenny-wilson.jpg"
+                                                <div className="patient-profile-wrapper"><Image alt="Department Icon" loading="lazy"
+                                                    src={Doctors3} height={100} width={100}
                                                     className="patient-profile-image" /></div>
                                                 <div className="testimonail-slider-content">
                                                     <div className="testimonail-patient-name">Anjali M.</div>
                                                     <div className="patient-designation">University Student
                                                     </div>
-                                                    <p className="department-short-details">As a student, I can't afford multiple doctor visits. This tool gave me a free, anonymous first step. It was so fast and helped me decide what to do next.</p>
-                                                    <div className="patient-star-review-block"><img
-                                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                        loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd981c219b88cc407d42c3_dark-star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /></div>
+                                                    <p className="department-short-details">{"As a student, I can't afford multiple doctor visits. This tool gave me a free, anonymous first step. It was so fast and helped me decide what to do next."}</p>
+                                                    <div className="patient-star-review-block"><Image height={18} width={19}
+                                                        src={Start}
+                                                        loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                            src={Start}
+                                                            loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                src={Start}
+                                                                loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                    src={Start}
+                                                                    loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                        src={StartBlank}
+                                                                        loading="lazy" alt="Star Icon" className="star-icon" /></div>
                                                 </div>
-                                                <div className="testimonial-card-hover-shadow"></div><img
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9d49c3cf2384bfcc4e92_dotted%20shape.png"
+                                                <div className="testimonial-card-hover-shadow"></div><Image width={82} height={70}
+                                                    src={CardsSine}
                                                     loading="lazy" alt="Dotted Icon" className="testimonial-dotted-image" />
                                             </div>
                                         </div>
                                         <div className="testimonial-slider-item w-slide">
                                             <div className="testimonial-slider-card">
-                                                <div className="patient-profile-wrapper"><img alt="Department Icon" loading="lazy"
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9ffc63e05410dba4dcd6_Daisy-robinson.jpg"
+                                                <div className="patient-profile-wrapper"><Image height={100} width={100} alt="Department Icon" loading="lazy"
+                                                    src={Doctors4}
                                                     className="patient-profile-image" /></div>
                                                 <div className="testimonail-slider-content">
                                                     <div className="testimonail-patient-name">David L.</div>
                                                     <div className="patient-designation">Small Business Owner</div>
                                                     <p className="department-short-details">I was skeptical about an AI, but the accuracy was impressive. It provided a logical breakdown of my symptoms without any scary jargon. A genuinely useful service for getting quick health guidance.
                                                     </p>
-                                                    <div className="patient-star-review-block"><img
-                                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                        loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /></div>
+                                                    <div className="patient-star-review-block"><Image height={18} width={19}
+                                                        src={Start}
+                                                        loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                            src={Start}
+                                                            loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                src={Start}
+                                                                loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                    src={Start}
+                                                                    loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                        src={StartBlank}
+                                                                        loading="lazy" alt="Star Icon" className="star-icon" /></div>
                                                 </div>
-                                                <div className="testimonial-card-hover-shadow"></div><img
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9d49c3cf2384bfcc4e92_dotted%20shape.png"
+                                                <div className="testimonial-card-hover-shadow"></div><Image width={82} height={70}
+                                                    src={CardsSine}
                                                     loading="lazy" alt="Dotted Icon" className="testimonial-dotted-image" />
                                             </div>
                                         </div>
                                         <div className="testimonial-slider-item w-slide">
                                             <div className="testimonial-slider-card">
-                                                <div className="patient-profile-wrapper"><img alt="Department Icon" loading="lazy"
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9f98fc7f1f47526ccb04_Brent-bennett.jpg"
+                                                <div className="patient-profile-wrapper"><Image height={100} width={100} alt="Department Icon" loading="lazy"
+                                                    src={Doctors5}
                                                     className="patient-profile-image" /></div>
                                                 <div className="testimonail-slider-content">
                                                     <div className="testimonail-patient-name">Fatima K.</div>
                                                     <div className="patient-designation">Freelance Writer</div>
                                                     <p className="department-short-details">The chat interface is brilliant—so simple and intuitive. In just two minutes, I went from feeling completely lost and worried to having a clear, actionable plan. I highly recommend this.
                                                     </p>
-                                                    <div className="patient-star-review-block"><img
-                                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                        loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd981c219b88cc407d42c3_dark-star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /></div>
+                                                    <div className="patient-star-review-block"><Image height={18} width={19}
+                                                        src={Start}
+                                                        loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                            src={Start}
+                                                            loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                src={Start}
+                                                                loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                    src={Start}
+                                                                    loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                        src={StartBlank}
+                                                                        loading="lazy" alt="Star Icon" className="star-icon" /></div>
                                                 </div>
-                                                <div className="testimonial-card-hover-shadow"></div><img
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9d49c3cf2384bfcc4e92_dotted%20shape.png"
+                                                <div className="testimonial-card-hover-shadow"></div><Image width={82} height={70}
+                                                    src={CardsSine}
                                                     loading="lazy" alt="Dotted Icon" className="testimonial-dotted-image" />
                                             </div>
                                         </div>
                                         <div className="testimonial-slider-item w-slide">
                                             <div className="testimonial-slider-card">
-                                                <div className="patient-profile-wrapper"><img alt="Department Icon" loading="lazy"
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9f98fc7f1f47526ccb04_Brent-bennett.jpg"
+                                                <div className="patient-profile-wrapper"><Image height={100} width={100} alt="Department Icon" loading="lazy"
+                                                    src={Doctors6}
                                                     className="patient-profile-image" /></div>
                                                 <div className="testimonail-slider-content">
                                                     <div className="testimonail-patient-name">Raj V. </div>
                                                     <div className="patient-designation">IT Professional</div>
-                                                    <p className="department-short-details">This isn't a diagnosis, and it doesn't pretend to be. It's an intelligent guide that pointed me in the right direction. An essential first step before seeing a doctor.
+                                                    <p className="department-short-details">{"This isn't a diagnosis, and it doesn't pretend to be. It's an intelligent guide that pointed me in the right direction. An essential first step before seeing a doctor."}
                                                     </p>
-                                                    <div className="patient-star-review-block"><img
-                                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                        loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd96e9ce2cb290e285b858_Star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /><img
-                                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd981c219b88cc407d42c3_dark-star-5.png"
-                                                            loading="lazy" alt="Star Icon" height="Auto" className="star-icon" /></div>
+                                                    <div className="patient-star-review-block"><Image height={18} width={19}
+                                                        src={Start}
+                                                        loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                            src={Start}
+                                                            loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                src={Start}
+                                                                loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                    src={Start}
+                                                                    loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
+                                                                        src={StartBlank}
+                                                                        loading="lazy" alt="Star Icon" className="star-icon" /></div>
                                                 </div>
-                                                <div className="testimonial-card-hover-shadow"></div><img
-                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cd9d49c3cf2384bfcc4e92_dotted%20shape.png"
+                                                <div className="testimonial-card-hover-shadow"></div><Image width={82} height={70}
+                                                    src={CardsSine}
                                                     loading="lazy" alt="Dotted Icon" className="testimonial-dotted-image" />
                                             </div>
                                         </div>

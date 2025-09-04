@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Footer() {
+    const year = new Date().getFullYear();
     return (
         <>
             <section className="footer-section two">
@@ -17,8 +18,9 @@ export default function Footer() {
                                     src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d1a4024399efb60073c983_medcare-white-logo.png"
                                     loading="lazy" alt="Footer Logo" className="logo-image" /></a>
                                 <div className="footer-address white-color">Clarity for your health concerns. Instant, anonymous, and free.</div>
-                                <div className="social-block"><a href="https://www.facebook.com/" target="_blank"
-                                    className="footer-social-link-two w-inline-block"><img
+                                {/* <div className="social-block"><a href="https://www.facebook.com/" target="_blank"
+                                    className="footer-social-link-two w-inline-block">
+                                    <img
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caef5f57fd0cc188939b25_facebook.svg"
                                         loading="lazy" alt="Facebook Icon" className="social-image" /><img
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caf2bd6ac28d88edb0269b_facebook-white.svg"
@@ -37,7 +39,8 @@ export default function Footer() {
                                             src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caf1cdcf665b1c4ff072bb_instagram.svg"
                                             loading="lazy" alt="Instragram" className="social-image" /><img
                                             src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caf2e967afff45c74d5c2a_instagram-white.svg"
-                                            loading="lazy" alt="Instragram" className="social-image-white" /></a></div>
+                                            loading="lazy" alt="Instragram" className="social-image-white" /></a>
+                                </div> */}
                             </div>
                             <div className="footer-block">
                                 <div className="footer-title white-color">Menu</div>
@@ -56,16 +59,16 @@ export default function Footer() {
                                     <a href="cookies" className="footer-link white-color">Cookie</a>
                                     {/* <a href="#" className="footer-link white-color">Licenses</a>
                                     <a href="#" className="footer-link white-color">Change Log</a> */}
-                                    </div>
+                                </div>
                             </div>
-                            <div className="footer-block">
+                            {/* <div className="footer-block">
                                 <div className="footer-title white-color">Contact</div>
                                 <div className="footer-link-wrapper">
                                     <div className="footer-contact-text white-color">3891 Ranch view Dr. Richardson, California 62639</div><a
                                         href="mailto:contact@medcare.com" className="footer-link white-color">contact@medcare.com</a><a
                                             href="tel:5055550125" className="footer-link white-color">(505) 555-0125</a>
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="footer-block">
                                 <div className="footer-title white-color">Our Commitment</div>
                                 <div className="footer-link-wrapper">
@@ -96,10 +99,13 @@ export default function Footer() {
             <div className="copy-right-block two">
                 <div className="w-layout-blockcontainer container w-container">
                     <div className="footer-copyright-center white-color">Copyright © <a href="#"
-                        className="template-link white-color">MedCare </a>| Designed by <a href="https://brandbes.com/" target="_blank"
-                            className="brandbes-link white-color">Technoocomet Solutions </a>- Powered by <a
-                                href="https://webflow.com/templates/designers/brandbes" target="_blank"
-                                className="webflow-link white-color">Webflow</a></div>
+                        className="template-link white-color">{year} Needaan </a>| Devloped by <a href="https://brandbes.com/" target="_blank"
+                            className="brandbes-link white-color">Technoocomet Solutions </a>
+                        {/* - Powered by <a
+                            href="https://webflow.com/templates/designers/brandbes" target="_blank"
+                            className="webflow-link white-color">Webflow</a> */}
+
+                    </div>
                 </div>
             </div>
         </>
