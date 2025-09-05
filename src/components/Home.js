@@ -759,7 +759,7 @@ export default function Home() {
                                 </div>
                                 <div className="quiz-content-box padding">
                                     <div className="quiz-heading-margin-bottom margin-bottom-default">
-                                        <h2 className="h2-quiz">Are These Health Worries on Your Mind?</h2>
+                                        <h2 className="h2-quiz section-title service">Are These Health Worries on Your Mind?</h2>
 
                                     </div>
                                     <div className="quiz-blurbs-structure">
