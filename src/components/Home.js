@@ -3,6 +3,8 @@ import Script from "next/script";
 import { useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import '@/style/yourself.css'
+import '@/style/home.css'
+
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import Image from "next/image";
@@ -46,7 +48,7 @@ export default function Home() {
                                     <p data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f73" className="hero-title-description">
                                         Our advanced AI analyzes your symptoms in seconds to suggest possible causes and tells you exactly which type of doctor you need to see.</p>
                                     <div data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f75" className="appointment-button-wrap"><a
-                                        href="../appointment.html" className="button-primary w-inline-block">
+                                        href="#" className="button-primary w-inline-block">
                                         <div className="button-primary-text">Start Chat Now</div>
                                         <div className="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none">
@@ -222,7 +224,7 @@ export default function Home() {
                                             </div>
                                             <div className="our-service-count-title">Years Experience</div>
                                         </div> */}
-                                    </div><a data-w-id="3f77d7a6-5a54-74bf-8be2-5fb34c970a8e" href="../about-us.html"
+                                    </div><a data-w-id="3f77d7a6-5a54-74bf-8be2-5fb34c970a8e" href="#"
                                         className="button-outline margin-top-60px w-button">See How It Works</a>
                                 </div>
                                 <div id="w-node-f2cecc8a-2cdc-f642-d55c-2ee7f6f22443-b42bc025"
@@ -522,78 +524,7 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* <div className="service-slider-item-two w-slide">
-                                            <div className="department-slider-list-wrapper-two w-dyn-list">
-                                                <div role="list" className="department-slider-list-two w-dyn-items">
-                                                    <div role="listitem" className="service-slider-list-item w-dyn-item">
-                                                        <div className="department-slider-card-two">
-                                                            <div className="department-slider-card-two-wrap">
-                                                                <div className="department-icon-wrapper-two"><img
-                                                                    alt="Department Icon" loading="lazy"
-                                                                    src="https://cdn.prod.website-files.com/65cb4d1ed2f90340ed5047d9/65cb4e675d6e1ddd8919d292_oncology.png"
-                                                                    className="department-icon" />
-                                                                    <div className="department-icon-bg-color"></div>
-                                                                </div>
-                                                                <div className="department-slider-content"><a href="../service/oncology.html"
-                                                                    className="department-name-link w-inline-block">
-                                                                    <h3 className="department-name">Oncology</h3>
-                                                                </a>
-                                                                    <p className="department-short-details two">Cancer treatments provided by our oncologists are
-                                                                        personalized and provided with unwavering support.</p>
-                                                                    <div className="learn-more-wrap"><a href="../service/oncology.html"
-                                                                        className="learn-more-link-wrap w-inline-block">
-                                                                        <div className="department-link-text">Learn More</div>
-                                                                        <div className="learn-more-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg"
-                                                                            width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                                            <path
-                                                                                d="M13.3341 10C13.3348 10.1097 13.3138 10.2184 13.2723 10.32C13.2308 10.4215 13.1697 10.5138 13.0925 10.5917L8.09247 15.5917C7.93555 15.7486 7.72272 15.8368 7.50081 15.8368C7.27889 15.8368 7.06606 15.7486 6.90914 15.5917C6.75222 15.4348 6.66406 15.222 6.66406 15C6.66406 14.7781 6.75222 14.5653 6.90914 14.4084L11.3258 10L6.91747 5.59172C6.78095 5.4323 6.70961 5.22723 6.71771 5.0175C6.72581 4.80777 6.81276 4.60882 6.96117 4.46041C7.10958 4.312 7.30853 4.22506 7.51826 4.21696C7.72799 4.20886 7.93305 4.28019 8.09247 4.41672L13.0925 9.41672C13.2464 9.57193 13.3332 9.78143 13.3341 10Z"
-                                                                                fill="currentcolor" />
-                                                                        </svg></div>
-                                                                    </a></div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="department-card-hover-shadow"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
-                                    {/* <div className="service-slider-item-two w-slide">
-                                            <div className="department-slider-list-wrapper-two w-dyn-list">
-                                                <div role="list" className="department-slider-list-two w-dyn-items">
-                                                    <div role="listitem" className="service-slider-list-item w-dyn-item">
-                                                        <div className="department-slider-card-two">
-                                                            <div className="department-slider-card-two-wrap">
-                                                                <div className="department-icon-wrapper-two"><img
-                                                                    alt="Department Icon" loading="lazy"
-                                                                    src="https://cdn.prod.website-files.com/65cb4d1ed2f90340ed5047d9/65cb4e02fe228aa210465184_cardiology.png"
-                                                                    className="department-icon" />
-                                                                    <div className="department-icon-bg-color"></div>
-                                                                </div>
-                                                                <div className="department-slider-content"><a href="../service/cardiology.html"
-                                                                    className="department-name-link w-inline-block">
-                                                                    <h3 className="department-name">Cardiology</h3>
-                                                                </a>
-                                                                    <p className="department-short-details two">Our board-certified cardiologists treat and
-                                                                        prevent cardiovascular problems with a focus on heart health.</p>
-                                                                    <div className="learn-more-wrap"><a href="../service/cardiology.html"
-                                                                        className="learn-more-link-wrap w-inline-block">
-                                                                        <div className="department-link-text">Learn More</div>
-                                                                        <div className="learn-more-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg"
-                                                                            width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                                            <path
-                                                                                d="M13.3341 10C13.3348 10.1097 13.3138 10.2184 13.2723 10.32C13.2308 10.4215 13.1697 10.5138 13.0925 10.5917L8.09247 15.5917C7.93555 15.7486 7.72272 15.8368 7.50081 15.8368C7.27889 15.8368 7.06606 15.7486 6.90914 15.5917C6.75222 15.4348 6.66406 15.222 6.66406 15C6.66406 14.7781 6.75222 14.5653 6.90914 14.4084L11.3258 10L6.91747 5.59172C6.78095 5.4323 6.70961 5.22723 6.71771 5.0175C6.72581 4.80777 6.81276 4.60882 6.96117 4.46041C7.10958 4.312 7.30853 4.22506 7.51826 4.21696C7.72799 4.20886 7.93305 4.28019 8.09247 4.41672L13.0925 9.41672C13.2464 9.57193 13.3332 9.78143 13.3341 10Z"
-                                                                                fill="currentcolor" />
-                                                                        </svg></div>
-                                                                    </a></div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="department-card-hover-shadow"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> */}
+                                    
                                 </div>
                                 <div className="department-slider-arrow left w-slider-arrow-left">
                                     <div className="department-slider-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"

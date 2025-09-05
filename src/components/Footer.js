@@ -1,4 +1,7 @@
+import Link from 'next/link';
 import React from 'react'
+import FooterLogo from '../assets/image/FooterLogo.png'
+import Image from 'next/image';
 
 export default function Footer() {
     const year = new Date().getFullYear();
@@ -13,10 +16,13 @@ export default function Footer() {
                         </div>
                         <div data-w-id="94547a58-0949-cde7-2711-4cc424047d44"
                             className="footer-content margin-top-60px">
-                            <div id="w-node-_94547a58-0949-cde7-2711-4cc424047d45-b42bc025" className="footer-block"><a href="home"
-                                className="footer-logo-link-block w-inline-block"><img
+                            <div id="w-node-_94547a58-0949-cde7-2711-4cc424047d45-b42bc025" className="footer-block"><Link href="/"
+                                className="footer-logo-link-block w-inline-block">
+                                    {/* <img
                                     src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d1a4024399efb60073c983_medcare-white-logo.png"
-                                    loading="lazy" alt="Footer Logo" className="logo-image" /></a>
+                                    loading="lazy" alt="Footer Logo" className="logo-image" /> */}
+                                    <Image src={FooterLogo} alt="Footer Logo" className="logo-image" width={189} height={40} />
+                                    </Link>
                                 <div className="footer-address white-color">Clarity for your health concerns. Instant, anonymous, and free.</div>
                                 {/* <div className="social-block"><a href="https://www.facebook.com/" target="_blank"
                                     className="footer-social-link-two w-inline-block">
@@ -44,19 +50,19 @@ export default function Footer() {
                             </div>
                             <div className="footer-block">
                                 <div className="footer-title white-color">Menu</div>
-                                <div className="footer-link-wrapper"><a href="home" className="footer-link white-color">Home</a><a
-                                    href="aboutus" className="footer-link white-color">About</a>
+                                <div className="footer-link-wrapper"><Link href="/" className="footer-link white-color">Home</Link><Link
+                                    href="/aboutus" className="footer-link white-color">About</Link>
                                     {/* <a href="#" className="footer-link white-color">Features</a> */}
                                     {/* <a href="#" className="footer-link white-color">Doctors</a> */}
-                                    <a href="#" className="footer-link white-color">Blog</a></div>
+                                    <Link href="" className="footer-link white-color">Blog</Link></div>
                             </div>
                             <div className="footer-block">
                                 <div className="footer-title white-color">Support</div>
                                 <div className="footer-link-wrapper">
                                     {/* <a href="#" className="footer-link white-color">FAQ</a> */}
-                                    <a href="privecypolicy" className="footer-link white-color">Privacy Policy</a>
-                                    <a href="termscondition" className="footer-link white-color">Terms & Conditions</a>
-                                    <a href="cookies" className="footer-link white-color">Cookie</a>
+                                    <Link href="/privecypolicy" className="footer-link white-color">Privacy Policy</Link>
+                                    <Link href="/termscondition" className="footer-link white-color">Terms & Conditions</Link>
+                                    <Link href="/cookies" className="footer-link white-color">Cookie</Link>
                                     {/* <a href="#" className="footer-link white-color">Licenses</a>
                                     <a href="#" className="footer-link white-color">Change Log</a> */}
                                 </div>
