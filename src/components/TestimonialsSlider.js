@@ -23,14 +23,52 @@ import '../style/global.css'
 
 export default function TestimonialSlider() {
 
+    // Function to render stars based on rating
+    const renderStars = (rating) => {
+        const stars = [];
+        const totalStars = 5;
+        
+        // Add filled stars
+        for (let i = 0; i < rating; i++) {
+            stars.push(
+                <Image 
+                    key={`filled-${i}`}
+                    height={18} 
+                    width={19}
+                    src={Start}
+                    loading="lazy" 
+                    alt="Star Icon" 
+                    className="star-icon" 
+                />
+            );
+        }
+        
+        // Add blank stars for remaining
+        for (let i = rating; i < totalStars; i++) {
+            stars.push(
+                <Image 
+                    key={`blank-${i}`}
+                    height={18} 
+                    width={19}
+                    src={StartBlank}
+                    loading="lazy" 
+                    alt="Star Icon" 
+                    className="star-icon" 
+                />
+            );
+        }
+        
+        return stars;
+    };
+
     const data = [
         {
             id: 1,
             image: Doctors1,
             name: "Priya S. ",
             designation: "Graphic Designer",
-            description: "Googling my symptoms was terrifying. A friend suggested needan, and the relief was instant. It gave me a clear, calm list of possibilities and pointed me to the right specialist.",
-            rating: 4
+            description: "Googling my symptoms was terrifying. A friend suggested needan, and relief was instant. It gave me a clear, calm list of possibilities and pointed me to the right specialist.",
+            rating: 5
         },
         {
             id: 2,
@@ -38,7 +76,7 @@ export default function TestimonialSlider() {
             name: "Mark T. ",
             designation: "High School Teacher",
             description: "I had a weird mix of symptoms and absolutely no idea who to call. This AI checker analyzed everything and suggested a dermatologist. It was spot on. Saved me so much time.",
-            rating: 5
+            rating: 3
         },
         {
             id: 3,
@@ -54,7 +92,7 @@ export default function TestimonialSlider() {
             name: "David L. ",
             designation: "Small Business Owner",
             description: "I was skeptical about AI, but accuracy was impressive. It provided a logical breakdown of my symptoms without jargon. A useful service for getting health guidance. ",
-            rating: 5
+            rating: 4
         },
         {
             id: 5,
@@ -62,7 +100,7 @@ export default function TestimonialSlider() {
             name: "Fatima K. ",
             designation: "Freelance Writer",
             description: "The chat interface is brilliant—so simple and intuitive. In just two minutes, I went from feeling lost and worried to having a clear, actionable plan. I highly recommend this.",
-            rating: 4
+            rating: 3
         },
         {
             id: 6,
@@ -70,14 +108,14 @@ export default function TestimonialSlider() {
             name: "Raj V.",
             designation: "IT Professional",
             description: "This isn't a diagnosis, and it doesn't pretend to be. It's an intelligent, truly valuable guide that pointed me in the right direction. An essential first step to take before seeing a doctor.",
-            rating: 5
+            rating: 4
         }
     ];
     return (
         <Swiper
-            modules={[Autoplay]}       // ✅ enable autoplay
+            modules={[Autoplay]}       
             loop={true}
-            autoplay={{ delay: 2000 }} // ✅ 2 sec per slide
+            autoplay={{ delay: 2000 }} 
             slidesPerView={1}
             spaceBetween={20}
             breakpoints={{
@@ -108,17 +146,9 @@ export default function TestimonialSlider() {
                                     </div>
                                     <p className="department-short-details department-cards-details">{item.description}
                                     </p>
-                                    <div className="patient-star-review-block"><Image height={18} width={19}
-                                        src={Start}
-                                        loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
-                                            src={Start}
-                                            loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
-                                                src={Start}
-                                                loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
-                                                    src={Start}
-                                                    loading="lazy" alt="Star Icon" className="star-icon" /><Image height={18} width={19}
-                                                        src={StartBlank}
-                                                        loading="lazy" alt="Star Icon" className="star-icon" /></div>
+                                    <div className="patient-star-review-block">
+                                        {renderStars(item.rating)}
+                                    </div>
                                 </div>
                                 <div className="testimonial-card-hover-shadow"></div><Image width={82} height={70}
                                     src={CardsSine}
