@@ -76,21 +76,19 @@ export default function TestimonialSlider() {
             modules={[Autoplay]}       // ✅ enable autoplay
             loop={true}
             autoplay={{ delay: 2000 }} // ✅ 2 sec per slide
-            slidesPerView={3}
+            slidesPerView={1}
             spaceBetween={20}
             breakpoints={{
                 575: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 10,
                 },
+                
                 991: {
-                    slidesPerView: 2,
+                    slidesPerView: 3,
                     spaceBetween: 15,
                 },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                }
+                
             }}
         >
 
