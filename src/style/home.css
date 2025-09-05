@@ -2264,7 +2264,7 @@ textarea.w-select {
 }
 
 .w-layout-blockcontainer {
-  max-width: 940px;
+  max-width: 940px ;
   margin-left: auto;
   margin-right: auto;
   display: block;

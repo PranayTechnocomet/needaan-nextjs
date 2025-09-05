@@ -752,8 +752,8 @@ export default function Home() {
                         </div>
                     </div>
                 </section> */}
-                    <section className="quiz-section section padding-bottom-115px">
-                        <div className="w-layout-blockcontainer container-quiz w-container">
+                    <section className="quiz-section section testimonial-section padding-bottom-115px">
+                        <div className="w-layout-blockcontainer container w-container">
                             <div className="quiz-structure structure">
                                 <div className="quiz-image-border-radius">
                                     <Image src={WorriesMind} width={645} height={720} loading="lazy" alt="A woman with curly blonde hair, resting her head on her hand, gazing thoughtfully into the distance." className="quiz-image size" />
