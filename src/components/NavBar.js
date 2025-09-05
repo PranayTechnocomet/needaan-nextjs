@@ -1,9 +1,14 @@
 "use client"
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 import React from 'react'
+import MedCareLogo from '../assets/image/MedCareLogo.png'
+import '@/style/navbar.css'
 
 export default function NavBar() {
     const router = useRouter();
+    const pathname = usePathname();
     return (
         <>
             <section className="header-section">
@@ -11,15 +16,25 @@ export default function NavBar() {
                     <div className="header-nav-block">
                         <div data-animation="over-left" data-collapse="medium" data-duration="400" data-easing="ease"
                             data-easing2="ease" role="banner" className="header-nav-inner-block w-nav">
-                            <div className="header-navbar-wrapper"><a href="home" className="navbar-logo w-nav-brand"><img
-                                src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65c9a4e9f78ae07595c9f519_medcare-logo.png"
-                                loading="lazy" alt="Logo Image" className="logo" /></a>
+                            <div className="header-navbar-wrapper"><Link href="/" className="navbar-logo w-nav-brand">
+                                {/* <img
+                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65c9a4e9f78ae07595c9f519_medcare-logo.png"
+                                    loading="lazy" alt="Logo Image" className="logo" /> */}
+                                <Image src={MedCareLogo} alt="Logo Image" loading="lazy" className="logo" width={189} height={40} />
+                            </Link>
                                 <nav role="navigation" className="nav-menu-wrap w-nav-menu">
                                     <div className="nav-menu-list-wrapper">
                                         <ul role="list" className="nav-menu w-list-unstyled">
-                                            <li className="mobile-logo-wrap"><a href="#" className="navbar-logo w-nav-brand"><img
-                                                src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65c9a4e9f78ae07595c9f519_medcare-logo.png"
-                                                loading="lazy" alt="Logo Image" className="logo" /></a></li>
+                                            <li className="mobile-logo-wrap"><Link
+                                                href="/" className="navbar-logo w-nav-brand">
+                                                {/* <img
+                                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65c9a4e9f78ae07595c9f519_medcare-logo.png"
+                                                    loading="lazy" alt="Logo Image" className="logo" /> */}
+                                                    
+                                                    <Image src={MedCareLogo} alt="Logo Image" loading="lazy" className="logo" width={189} height={40} />
+                                                    </Link></li>
+
+
                                             {/* <li className="menu-list">
                                                 <div data-hover="false" data-delay="0" className="menu-link-dropdown w-dropdown">
                                                     <div className="nav-dropdown-toggle w-dropdown-toggle">
@@ -33,11 +48,11 @@ export default function NavBar() {
                                                     </nav>
                                                 </div>
                                             </li> */}
-                                            <li className="menu-list"><a href="home" aria-current="page" className="menu-link ">Home</a></li>
-                                            <li className="menu-list"><a href="aboutus" className="menu-link">About</a></li>
-                                            <li className="menu-list"><a href="privecypolicy" className="menu-link">Privacy Policy</a></li>
-                                            <li className="menu-list"><a href="termscondition" className="menu-link">Terms & Conditions</a></li>
-                                            <li className="menu-list"><a href="cookies" className="menu-link">Cookie</a></li>
+                                            <li className="menu-list"><Link href="/" className={`menu-link ${pathname === '/' ? 'active-link' : ''}`}>Home</Link></li>
+                                            <li className="menu-list"><Link href="/aboutus" className={`menu-link ${pathname === '/aboutus' ? 'active-link' : ''}`}>About</Link></li>
+                                            <li className="menu-list"><Link href="/privecypolicy" className={`menu-link ${pathname === '/privecypolicy' ? 'active-link' : ''}`}>Privacy Policy</Link></li>
+                                            <li className="menu-list"><Link href="/termscondition" className={`menu-link ${pathname === '/termscondition' ? 'active-link' : ''}`}>Terms & Conditions</Link></li>
+                                            <li className="menu-list"><Link href="/cookies" className={`menu-link ${pathname === '/cookies' ? 'active-link' : ''}`}>Cookie</Link></li>
                                             {/* <li className="menu-list">
                                                 <div data-hover="false" data-delay="0" className="menu-link-dropdown w-dropdown">
                                                     <div className="nav-dropdown-toggle w-dropdown-toggle">

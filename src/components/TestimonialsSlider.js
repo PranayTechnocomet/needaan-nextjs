@@ -72,18 +72,32 @@ export default function TestimonialSlider() {
         }
     ];
     return (
-         <Swiper
-      modules={[Autoplay]}       // ✅ enable autoplay
-      loop={true}
-      autoplay={{ delay: 2000 }} // ✅ 2 sec per slide
-      slidesPerView={3}
-      spaceBetween={20}
-    >
+        <Swiper
+            modules={[Autoplay]}       // ✅ enable autoplay
+            loop={true}
+            autoplay={{ delay: 2000 }} // ✅ 2 sec per slide
+            slidesPerView={3}
+            spaceBetween={20}
+            breakpoints={{
+                575: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                991: {
+                    slidesPerView: 2,
+                    spaceBetween: 15,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                }
+            }}
+        >
 
             {data.map((item) => {
                 return (
                     <SwiperSlide key={item.id}>
-                        <div className="testimonial-slider-item w-slide " style={{marginTop: '40px'}}>
+                        <div className="testimonial-slider-item w-slide " style={{ marginTop: '40px' }}>
                             <div className="testimonial-slider-card">
                                 <div className="patient-profile-wrapper"><Image alt="Department Icon" loading="lazy"
                                     src={item.image} height={100} width={100}
