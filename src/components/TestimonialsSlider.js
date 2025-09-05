@@ -18,6 +18,8 @@ import Doctors6 from '../assets/image/Doctors6.jpg'
 import Start from '../assets/image/Start.png'
 import StartBlank from '../assets/image/StarBlank.png'
 import CardsSine from '../assets/image/CardsSine.png'
+import '../style/global.css'
+
 
 export default function TestimonialSlider() {
 
@@ -27,7 +29,7 @@ export default function TestimonialSlider() {
             image: Doctors1,
             name: "Priya S. ",
             designation: "Graphic Designer",
-            description: "Googling my symptoms was terrifying. A friend suggested needan, and the relief was instant. It gave me a clear, calm list of possibilities and pointed me to the right specialist. Incredible tool!",
+            description: "Googling my symptoms was terrifying. A friend suggested needan, and the relief was instant. It gave me a clear, calm list of possibilities and pointed me to the right specialist.",
             rating: 4
         },
         {
@@ -35,7 +37,7 @@ export default function TestimonialSlider() {
             image: Doctors2,
             name: "Mark T. ",
             designation: "High School Teacher",
-            description: "I had a weird mix of symptoms and no idea who to call. This AI checker analyzed everything and suggested a dermatologist. It was spot on. Saved me so much time.",
+            description: "I had a weird mix of symptoms and absolutely no idea who to call. This AI checker analyzed everything and suggested a dermatologist. It was spot on. Saved me so much time.",
             rating: 5
         },
         {
@@ -43,7 +45,7 @@ export default function TestimonialSlider() {
             image: Doctors3,
             name: "Anjali M.",
             designation: "University Student",
-            description: "As a student, I can't afford multiple doctor visits. This tool gave me a much-needed, totally free, anonymous first step. It was so fast and helped me decide exactly what to do next.",
+            description: "As a student, I can't afford multiple doctor visits. This tool gave me a much-needed, free, anonymous first step. It was so fast and helped me decide exactly what to do next.",
             rating: 4
         },
         {
@@ -51,7 +53,7 @@ export default function TestimonialSlider() {
             image: Doctors4,
             name: "David L. ",
             designation: "Small Business Owner",
-            description: "I was skeptical about an AI, but the accuracy was impressive. It provided a logical breakdown of my symptoms without scary jargon. A useful service for getting quick health guidance. ",
+            description: "I was skeptical about AI, but accuracy was impressive. It provided a logical breakdown of my symptoms without jargon. A useful service for getting health guidance. ",
             rating: 5
         },
         {
@@ -59,7 +61,7 @@ export default function TestimonialSlider() {
             image: Doctors5,
             name: "Fatima K. ",
             designation: "Freelance Writer",
-            description: "The chat interface is brilliant—so simple and intuitive. In just two minutes, I went from feeling completely lost and worried to having a clear, actionable plan. I highly recommend this.",
+            description: "The chat interface is brilliant—so simple and intuitive. In just two minutes, I went from feeling lost and worried to having a clear, actionable plan. I highly recommend this.",
             rating: 4
         },
         {
@@ -67,7 +69,7 @@ export default function TestimonialSlider() {
             image: Doctors6,
             name: "Raj V.",
             designation: "IT Professional",
-            description: "This isn't a diagnosis, and it doesn't pretend to be. It's an intelligent guide that pointed me in the exact right direction. An essential first step to take before seeing a doctor.",
+            description: "This isn't a diagnosis, and it doesn't pretend to be. It's an intelligent, truly valuable guide that pointed me in the right direction. An essential first step to take before seeing a doctor.",
             rating: 5
         }
     ];
@@ -79,17 +81,17 @@ export default function TestimonialSlider() {
             slidesPerView={1}
             spaceBetween={20}
             breakpoints={{
-                575: {
+                576: {
                     slidesPerView: 2,
                     spaceBetween: 10,
                 },
                 
-                991: {
+                992: {
                     slidesPerView: 3,
                     spaceBetween: 15,
                 },
                 
-            }}
+            }}                                       
         >
 
             {data.map((item) => {
@@ -104,7 +106,7 @@ export default function TestimonialSlider() {
                                     <div className="testimonail-patient-name">{item.name}</div>
                                     <div className="patient-designation">{item.designation}
                                     </div>
-                                    <p className="department-short-details">{item.description}
+                                    <p className="department-short-details department-cards-details">{item.description}
                                     </p>
                                     <div className="patient-star-review-block"><Image height={18} width={19}
                                         src={Start}

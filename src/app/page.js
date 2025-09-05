@@ -1,4 +1,5 @@
 import Home from '@/components/Home'
+import NavBar from '@/components/NavBar'
 import React from 'react'
 // import '@/style/home.css'
 // import '@/style/yourself.css'
@@ -8,6 +9,7 @@ import React from 'react'
 export default function page() {
   return (
     <>
+
       <Home />
     </>
   )
