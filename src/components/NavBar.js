@@ -2,13 +2,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
-import React from 'react'
+import React, { useState } from 'react'
 import MedCareLogo from '../assets/image/MedCareLogo.png'
 import '@/style/navbar.css'
 
 export default function NavBar() {
     const router = useRouter();
     const pathname = usePathname();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false);
+    };
+
     return (
         <>
             <section className="header-section">
@@ -22,7 +32,7 @@ export default function NavBar() {
                                     loading="lazy" alt="Logo Image" className="logo" /> */}
                                 <Image src={MedCareLogo} alt="Logo Image" loading="lazy" className="logo" width={189} height={40} />
                             </Link>
-                                <nav role="navigation" className="nav-menu-wrap w-nav-menu">
+                                <nav role="navigation" className={`nav-menu-wrap w-nav-menu ${isMobileMenuOpen ? 'w--open' : ''}`}>
                                     <div className="nav-menu-list-wrapper">
                                         <ul role="list" className="nav-menu w-list-unstyled">
                                             <li className="mobile-logo-wrap"><Link
@@ -48,11 +58,11 @@ export default function NavBar() {
                                                     </nav>
                                                 </div>
                                             </li> */}
-                                            <li className="menu-list"><Link href="/" className={`menu-link ${pathname === '/' ? 'active-link' : ''}`}>Home</Link></li>
-                                            <li className="menu-list"><Link href="/aboutus" className={`menu-link ${pathname === '/aboutus' ? 'active-link' : ''}`}>About</Link></li>
-                                            <li className="menu-list"><Link href="/privecypolicy" className={`menu-link ${pathname === '/privecypolicy' ? 'active-link' : ''}`}>Privacy Policy</Link></li>
-                                            <li className="menu-list"><Link href="/termscondition" className={`menu-link ${pathname === '/termscondition' ? 'active-link' : ''}`}>Terms & Conditions</Link></li>
-                                            <li className="menu-list"><Link href="/cookies" className={`menu-link ${pathname === '/cookies' ? 'active-link' : ''}`}>Cookie</Link></li>
+                                            <li className="menu-list"><Link href="/" className={`menu-link ${pathname === '/' ? 'active-link' : ''}`} onClick={closeMobileMenu}>Home</Link></li>
+                                            <li className="menu-list"><Link href="/aboutus" className={`menu-link ${pathname === '/aboutus' ? 'active-link' : ''}`} onClick={closeMobileMenu}>About</Link></li>
+                                            <li className="menu-list"><Link href="/privecypolicy" className={`menu-link ${pathname === '/privecypolicy' ? 'active-link' : ''}`} onClick={closeMobileMenu}>Privacy Policy</Link></li>
+                                            <li className="menu-list"><Link href="/termscondition" className={`menu-link ${pathname === '/termscondition' ? 'active-link' : ''}`} onClick={closeMobileMenu}>Terms & Conditions</Link></li>
+                                            <li className="menu-list"><Link href="/cookies" className={`menu-link ${pathname === '/cookies' ? 'active-link' : ''}`} onClick={closeMobileMenu}>Cookie</Link></li>
                                             {/* <li className="menu-list">
                                                 <div data-hover="false" data-delay="0" className="menu-link-dropdown w-dropdown">
                                                     <div className="nav-dropdown-toggle w-dropdown-toggle">
@@ -101,8 +111,22 @@ export default function NavBar() {
                                             Us</a></div>
                                     </div>
                                 </nav>
-                                <div className="menu-button w-nav-button">
-                                    <div className="mobile-menu-icon w-icon-nav-menu"></div>
+                                <div className="menu-button w-nav-button" onClick={toggleMobileMenu}>
+                                    <div className="mobile-menu-icon">
+                                        {isMobileMenuOpen ? (
+                                            // Close icon (X)
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+                                        ) : (
+                                            // Custom toggle icon - you can replace this with any icon you want
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="3" y="6" width="18" height="2" rx="1" fill="currentColor"/>
+                                                <rect x="3" y="11" width="18" height="2" rx="1" fill="currentColor"/>
+                                                <rect x="3" y="16" width="18" height="2" rx="1" fill="currentColor"/>
+                                            </svg>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>

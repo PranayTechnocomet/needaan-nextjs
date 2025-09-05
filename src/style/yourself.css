@@ -188,6 +188,10 @@ a {
     color: #204169 !important;
    font-size: 13px !important;
    align-content: start !important;
+   
+}
+.health-worries-card-content{
+    font-weight: 600 !important;
 }
 
 /* --- Responsive Design --- */

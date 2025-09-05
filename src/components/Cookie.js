@@ -3,13 +3,13 @@ import '@/style/privecypolicy.css'
 import Footer from './Footer'
 import NavBar from './NavBar'
 import Link from 'next/link'
-
+import '../style/global.css'
 
 export default function Cookie() {
     return (
         <>
             <div id="Scroll-Top" className="page-wrapper">
-                <NavBar />
+                {/* <NavBar /> */}
                 <div className="main-wrapper">
                     <section className="breadcrumb-section">
                         <div className="w-layout-blockcontainer container w-container">

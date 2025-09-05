@@ -9,6 +9,8 @@ import OurMission from '../assets/image/OurMission.jpg'
 import OurGuiding from '../assets/image/OurGuiding.jpg'
 import TowardPeace from '../assets/image/TowardPeace.jpg'
 import Link from 'next/link';
+import '../style/global.css';
+
 
 export default function AboutUs() {
     const router = useRouter();
@@ -16,7 +18,7 @@ export default function AboutUs() {
     return (
         <>
             <div id="Scroll-Top" className="page-wrapper">
-                <NavBar />
+                {/* <NavBar /> */}
                 <div className="main-wrapper">
                     <section className="breadcrumb-section">
                         <div className="w-layout-blockcontainer container w-container">

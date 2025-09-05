@@ -5,13 +5,13 @@ import Footer from './Footer'
 import NavBar from './NavBar'
 import Image from 'next/image'
 import Link from 'next/link'
-
+import '../style/global.css'
 export default function PrivecyPolicy() {
     return (
         <>
-            <div id="Scroll-Top" className="page-wrapper">
-                <NavBar />
-                <div className="main-wrapper">
+            <main id="Scroll-Top" className="page-wrapper">
+                {/* <NavBar /> */}
+                <main className="main-wrapper">
                     <section className="breadcrumb-section">
                         <div className="w-layout-blockcontainer container w-container">
                             <div className="breadcrumb-wrapper">
@@ -145,11 +145,11 @@ export default function PrivecyPolicy() {
 
 
 
-                </div>
+                </main>
 
 
                 <Footer />
-            </div>
+            </main>
         </>
     )
 }

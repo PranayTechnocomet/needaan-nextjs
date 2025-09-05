@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react'
 import FooterLogo from '../assets/image/FooterLogo.png'
 import Image from 'next/image';
+import '../style/global.css'
 
 export default function Footer() {
     const year = new Date().getFullYear();
@@ -104,8 +105,8 @@ export default function Footer() {
             </section>
             <div className="copy-right-block two">
                 <div className="w-layout-blockcontainer container w-container">
-                    <div className="footer-copyright-center white-color">Copyright © <a href="https://needaan-nextjs.vercel.app/" target="_blank"
-                        className="template-link white-color">{year} Needaan </a>| Devloped by <a href="https://technocometsolutions.com/" target="_blank"
+                    <div className="footer-copyright-center white-color">Copyright © {year} <a href="https://needaan-nextjs.vercel.app/" 
+                        className="template-link white-color"> Needaan </a>| Devloped by <a href="https://technocometsolutions.com/" target="_blank"
                             className="brandbes-link white-color">Technoocomet Solutions </a>
                         {/* - Powered by <a
                             href="https://webflow.com/templates/designers/brandbes" target="_blank"

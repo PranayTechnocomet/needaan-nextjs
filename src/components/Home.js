@@ -4,6 +4,7 @@ import { useState } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import '@/style/yourself.css'
 import '@/style/home.css'
+import '@/style/global.css'
 
 import Footer from "./Footer";
 import NavBar from "./NavBar";
@@ -38,7 +39,7 @@ export default function Home() {
 
         <>
             <main id="Scroll-Top" className="page-wrapper">
-                <NavBar />
+                {/* <NavBar /> */}
                 <main className="main-wrapper">
                     <section className="hero-section-two ">
                         <div className="w-layout-blockcontainer container w-container">
@@ -339,9 +340,9 @@ export default function Home() {
                             <div className="service-section-wrapper">
                                 <div className="section-title-wrap center margin-bottom-60px">
                                     <div className="section-sub-title">Features</div>
-                                    <h2 className="section-title service">Features of Our AI Symptom Checker</h2>
+                                    <h2 className="section-title service service-card-content-main-cards">Features of Our AI Symptom Checker</h2>
                                 </div>
-                                <div className="services-grid-container services-responsive-grid ">
+                                <div className="services-grid-container services-responsive-grid  ">
                                     <div className="service-slider-item-two w-slide gynecology-card">
                                         <div className="department-slider-list-wrapper-two w-dyn-list">
                                             <div role="list" className="department-slider-list-two w-dyn-items">
@@ -360,7 +361,7 @@ export default function Home() {
                                                                 className="department-name-link w-inline-block">
                                                                 <h3 className="department-name">Instant Symptom Analysis</h3>
                                                             </a>
-                                                                <p className="department-short-details two">Our AI symptom checker processes your health concerns in real-time, providing you with intelligent insights into potential causes from a vast database.
+                                                                <p className="department-short-details two features-details-description">Our AI symptom checker processes your health concerns in real-time, providing you insights into potential causes from a vast database.
                                                                 </p>
                                                                 <div className="learn-more-wrap"><a href="#"
                                                                     className="learn-more-link-wrap w-inline-block">
@@ -396,11 +397,11 @@ export default function Home() {
                                                                 className="department-name-link w-inline-block">
                                                                 <h3 className="department-name">Find the Right Doctor</h3>
                                                             </a>
-                                                                <p className="department-short-details two">After checking your symptoms, our AI recommends the exact type of medical specialist, taking all the guesswork out of your next crucial step.
+                                                                <p className="department-short-details two features-details-description">After checking symptoms, our AI quickly recommends the right type of medical specialist, taking the guesswork out of your next crucial step.
                                                                 </p>
                                                                 <div className="learn-more-wrap"><a href="#"
                                                                     className="learn-more-link-wrap w-inline-block">
-                                                                    <div className="department-link-text">Discover Your Next Step</div>
+                                                                    <div className="department-link-text">Discover  Next Step</div>
                                                                     <div className="learn-more-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg"
                                                                         width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                                         <path
@@ -416,7 +417,7 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="service-slider-item-two w-slide gynecology-card">
+                                    <div className="service-slider-item-two w-slide gynecology-card ophthalmology-main">
                                         <div className="department-slider-list-wrapper-two w-dyn-list">
                                             <div role="list" className="department-slider-list-two w-dyn-items">
                                                 <div role="listitem" className="service-slider-list-item w-dyn-item">
@@ -433,11 +434,11 @@ export default function Home() {
                                                                 className="department-name-link w-inline-block">
                                                                 <h3 className="department-name"> Your Private Checker </h3>
                                                             </a>
-                                                                <p className="department-short-details two">This AI symptom checker is 100% private. No accounts or sign-ups are needed, ensuring all of your personal health queries remain confidential.
+                                                                <p className="department-short-details two features-details-description">This AI symptom checker is 100% completely private. No accounts or sign-ups are ever needed, ensuring all of your personal health queries remain confidential.
                                                                 </p>
                                                                 <div className="learn-more-wrap"><a href="#"
                                                                     className="learn-more-link-wrap w-inline-block">
-                                                                    <div className="department-link-text">Discover Your Next Step</div>
+                                                                    <div className="department-link-text">Discover  Next Step</div>
                                                                     <div className="learn-more-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg"
                                                                         width="20" height="20" viewBox="0 0 20 20" fill="none">
                                                                         <path
@@ -488,7 +489,7 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div> */}
-                                    <div className="service-slider-item-two w-slide ophthalmology-main">
+                                    <div className="service-slider-item-two w-slide gynecology-card ophthalmology-main">
                                         <div className="department-slider-list-wrapper-two w-dyn-list">
                                             <div role="list" className="department-slider-list-two w-dyn-items">
                                                 <div role="listitem" className="service-slider-list-item w-dyn-item">
@@ -504,7 +505,7 @@ export default function Home() {
                                                                 className="department-name-link w-inline-block">
                                                                 <h3 className="department-name">Clear & Simple Explanations</h3>
                                                             </a>
-                                                                <p className="department-short-details two">Our free symptom checker translates confusing medical jargon into plain language, empowering you with clear information you can understand and act on.
+                                                                <p className="department-short-details two features-details-description">Our free symptom checker translates confusing medical jargon into plain language, empowering you with information you can understand and act on.
                                                                 </p>
                                                                 <div className="learn-more-wrap"><a href="#"
                                                                     className="learn-more-link-wrap w-inline-block">
@@ -768,7 +769,7 @@ export default function Home() {
                                                 <div className="tag-emoji-padding padding">
                                                     <div className="emoji-on-tag">😰</div>
                                                     {/* <div className="tag-text-small quiz">I should <strong>check on that symptom </strong></div> */}
-                                                    <div className="tag-text-small quiz">What if this <br></br> <p className="yourself-cards-datas">symptom is <br></br> something serious? </p></div>
+                                                    <div className="tag-text-small quiz">What if this <br></br> <p className="yourself-cards-datas health-worries-card-content">symptom is <br></br> something serious? </p></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -777,7 +778,7 @@ export default function Home() {
                                                 <div className="tag-emoji-padding padding">
                                                     <div className="emoji-on-tag">🤯</div>
                                                     {/* <div className="tag-text-small quiz"><strong>It s been a while </strong>since my last check-up</div> */}
-                                                    <div className="tag-text-small quiz text-start"><span className="yourself-cards-datas">Web searches are  </span> just making me <br></br>more anxious.</div>
+                                                    <div className="tag-text-small quiz text-start"><span className="yourself-cards-datas health-worries-card-content">Web searches are  </span> just making me <br></br>more anxious.</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -785,7 +786,7 @@ export default function Home() {
                                             <div className="tag-emoji-background background-light">
                                                 <div className="tag-emoji-padding padding">
                                                     <div className="emoji-on-tag">🤔</div>
-                                                    <div className="tag-text-small quiz "><span className="yourself-cards-datas">{"I don't even know"} <br></br> which </span> type of <br></br> doctor to call.</div>
+                                                    <div className="tag-text-small quiz "><span className="yourself-cards-datas health-worries-card-content">{"I don't even know"} <br></br> which </span> type of <br></br> doctor to call.</div>
                                                 </div>
                                             </div>
                                         </div>
