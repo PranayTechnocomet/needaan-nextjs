@@ -107,8 +107,8 @@ export default function NavBar() {
                                                 </div>
                                             </li> */}
                                         </ul>
-                                        <div className="nav-menu-button-wrapper"><a href="#" className="button-outline w-button">Contact
-                                            Us</a></div>
+                                        <div className="nav-menu-button-wrapper"><a href="#" className="button-outline w-button"> Start Now 
+                                            </a></div>
                                     </div>
                                 </nav>
                                 <div className="menu-button w-nav-button" onClick={toggleMobileMenu}>

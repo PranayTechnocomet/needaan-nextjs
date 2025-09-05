@@ -12607,6 +12607,9 @@ figure {
 .features-details-description{
   font-size: 15px !important;
 }
+.health-wpriss-img{
+  border-radius: 20px !important;
+}
 @media screen and (max-width: 991px) {
   .features-details-description{
     font-size: 14px !important;

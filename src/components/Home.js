@@ -756,7 +756,7 @@ export default function Home() {
                         <div className="w-layout-blockcontainer container w-container">
                             <div className="quiz-structure structure">
                                 <div className="quiz-image-border-radius">
-                                    <Image src={WorriesMind} width={645} height={720} loading="lazy" alt="A woman with curly blonde hair, resting her head on her hand, gazing thoughtfully into the distance." className="quiz-image size" />
+                                    <Image src={WorriesMind} width={645} height={720} loading="lazy" alt="A woman with curly blonde hair, resting her head on her hand, gazing thoughtfully into the distance." className="quiz-image size health-wpriss-img" />
                                 </div>
                                 <div className="quiz-content-box padding">
                                     <div className="quiz-heading-margin-bottom margin-bottom-default">
