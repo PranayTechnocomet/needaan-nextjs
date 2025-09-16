@@ -78,7 +78,7 @@ export default function AboutUs() {
                     <section className="about-hero-section section-gap-y-axis-140px">
                         <div className="w-layout-blockcontainer container w-container">
                             <div className="about-hero-wrapper">
-                                <h2 className="section-title about-hero">AI Health Guidance: From Worry and Wellness.</h2>
+                                <h1 className="section-title about-hero all-heading-tag-data">AI Health Guidance: From Worry and Wellness.</h1>
                                 <p data-w-id="27e0852a-c8d0-6d59-dc4b-c74a8e684451" className="about-hero-description"> In a world flooded with conflicting health information, finding a clear first step can feel impossible. The anxiety of an unknown symptom is often made worse by online searches. needan was born from a simple idea: to provide a smart and reliable tool for AI health guidance that cuts through the noise.</p>
                                 <div data-w-id="6a9c1d10-f8a2-ce17-91ee-d9d49218fad6"
                                     className="about-hero-banner-image-wrap margin-top-60px">
