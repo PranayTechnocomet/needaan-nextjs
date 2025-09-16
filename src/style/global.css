@@ -226,6 +226,9 @@ th {
 .w-icon-slider-right:before {
     content: "î˜€";
 }
+.all-heading-tag-data{
+    font-size: 40px;
+}
 
 .w-icon-slider-left:before {
     content: "î˜";

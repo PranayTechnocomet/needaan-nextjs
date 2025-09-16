@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import React from 'react'
 import FooterLogo from '../assets/image/FooterLogo.png'
+// import FooterLogo from '../assets/image/Needaan_Logo.png'
 import Image from 'next/image';
 import '../style/global.css'
 import useSessionStart from '@/app/hooks/useSessionStart';
@@ -43,9 +44,7 @@ export default function Footer() {
                             className="footer-content margin-top-60px">
                             <div id="w-node-_94547a58-0949-cde7-2711-4cc424047d45-b42bc025" className="footer-block"><Link href="/"
                                 className="footer-logo-link-block w-inline-block">
-                                {/* <img
-                                    src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d1a4024399efb60073c983_medcare-white-logo.png"
-                                    loading="lazy" alt="Footer Logo" className="logo-image" /> */}
+                               
                                 <Image src={FooterLogo} alt="Footer Logo" className="logo-image" width={189} height={40} />
                             </Link>
                                 <div className="footer-address white-color">Clarity for your health concerns. Instant, anonymous, and free.</div>

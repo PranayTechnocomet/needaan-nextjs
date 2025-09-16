@@ -64,7 +64,7 @@ export default function Home() {
                         <div className="w-layout-blockcontainer container w-container">
                             <div className="hero-section-two-wrapper">
                                 <div className="hero-one-content-wrap">
-                                    <h2 data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f6e" className="hero-title two">Stop Guessing <span className="hero-title-span">Start Knowing </span>Your Very Own AI Symptom Checker.</h2>
+                                    <h1 data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f6e" className="hero-title all-heading-tag-data two">Stop Guessing <span className="hero-title-span">Start Knowing </span>Your Very Own AI Symptom Checker.</h1>
                                     <p data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f73" className="hero-title-description">
                                         Our advanced AI analyzes your symptoms in seconds to suggest possible causes and tells you exactly which type of doctor you need to see.</p>
                                     <div data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f75" className="appointment-button-wrap"><Button
