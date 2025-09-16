@@ -26,13 +26,32 @@ import StartBlank from '../assets/image/StarBlank.png'
 import CardsSine from '../assets/image/CardsSine.png'
 import WorriesMind from '../assets/image/WorriesMind.webp'
 import TestimonialSlider from "./TestimonialsSlider";
+import Link from "next/link";
+import useSessionStart from "@/app/hooks/useSessionStart";
+import { Button } from "react-bootstrap";
+import { useRouter } from "next/navigation";
 
 
 
 
 
 export default function Home() {
-
+    const router = useRouter();
+    const { createSecurity } = useSessionStart()
+    const [session_id, setSession_id] = useState('');
+    const handleSubmit = () => {
+        createSecurity({ action: "start" })
+            .then((res) => {
+                // console.log("ThisIsHomeResponse", res);
+               
+                setSession_id(res.session_id);
+               
+                router.push(`/chatboad/${res.session_id}`);
+            })
+            .catch((err) => {
+                console.log("Error in handleSubmit", err);
+            });
+    };
 
 
     return (
@@ -48,8 +67,8 @@ export default function Home() {
                                     <h2 data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f6e" className="hero-title two">Stop Guessing <span className="hero-title-span">Start Knowing </span>Your Very Own AI Symptom Checker.</h2>
                                     <p data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f73" className="hero-title-description">
                                         Our advanced AI analyzes your symptoms in seconds to suggest possible causes and tells you exactly which type of doctor you need to see.</p>
-                                    <div data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f75" className="appointment-button-wrap"><a
-                                        href="#" className="button-primary w-inline-block">
+                                    <div data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f75" className="appointment-button-wrap"><Button
+                                        onClick={handleSubmit} className="button-primary w-inline-block">
                                         <div className="button-primary-text">Start Chat Now</div>
                                         <div className="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none">
@@ -57,7 +76,7 @@ export default function Home() {
                                                 d="M16.9998 11.9922C17.0007 12.1567 16.9692 12.3198 16.907 12.472C16.8448 12.6243 16.7532 12.7628 16.6373 12.8796L9.1384 20.3785C8.90306 20.6139 8.58386 20.7461 8.25103 20.7461C7.9182 20.7461 7.599 20.6139 7.36366 20.3785C7.12831 20.1432 6.99609 19.824 6.99609 19.4912C6.99609 19.1583 7.12831 18.8391 7.36366 18.6038L13.9877 11.9922L7.37615 5.38068C7.1714 5.14158 7.06441 4.83403 7.07656 4.51948C7.08871 4.20494 7.2191 3.90655 7.44169 3.68397C7.66428 3.46138 7.96266 3.33098 8.27721 3.31883C8.59176 3.30668 8.89931 3.41368 9.1384 3.61843L16.6373 11.1174C16.8682 11.3501 16.9984 11.6644 16.9998 11.9922Z"
                                                 fill="currentcolor" />
                                         </svg></div>
-                                    </a></div>
+                                    </Button></div>
                                     {/* <img
                                         src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65cb058791aadd6db3939a36_dr-cart.png"
                                         loading="lazy"  data-w-id="a383da0b-f6f3-e922-ba61-f758fca78f7a" alt="Doctor Card"
@@ -525,7 +544,7 @@ export default function Home() {
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div className="department-slider-arrow left w-slider-arrow-left">
                                     <div className="department-slider-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
@@ -756,7 +775,7 @@ export default function Home() {
                         <div className="w-layout-blockcontainer container w-container">
                             <div className="quiz-structure structure">
                                 <div className="quiz-image-border-radius">
-                                    <Image src={WorriesMind} width={645} height={720} loading="lazy" alt="A woman with curly blonde hair, resting her head on her hand, gazing thoughtfully into the distance." className="quiz-image size health-wpriss-img" />
+                                    <Image src={WorriesMind} width={645} height={720} loading="lazy" alt="Women Image" className="quiz-image size health-wpriss-img" />
                                 </div>
                                 <div className="quiz-content-box padding">
                                     <div className="quiz-heading-margin-bottom margin-bottom-default">

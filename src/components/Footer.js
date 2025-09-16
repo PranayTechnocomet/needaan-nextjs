@@ -1,11 +1,35 @@
+"use client"
 import Link from 'next/link';
 import React from 'react'
 import FooterLogo from '../assets/image/FooterLogo.png'
 import Image from 'next/image';
 import '../style/global.css'
+import useSessionStart from '@/app/hooks/useSessionStart';
+import { Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Footer() {
+    const router = useRouter();
     const year = new Date().getFullYear();
+    const { createSecurity } = useSessionStart()
+    const [session_id, setSession_id] = useState('');
+    const [response, setResponse] = useState('');
+    // console.log("response1212", response);
+    
+    
+    const handleSubmit = () => {
+        createSecurity({ action: "start" })
+            .then((res) => {
+                
+                setSession_id(res.session_id);
+                setResponse(res.response);
+                router.push(`/chatboad/${res.session_id}`);
+            })
+            .catch((err) => {
+                console.log("Error in handleSubmit", err);
+            });
+    };
     return (
         <>
             <section className="footer-section two">
@@ -13,17 +37,17 @@ export default function Footer() {
                     <div className="footer-block-wrapper">
                         <div className="call-to-actions-wrap">
                             <h2 className="section-title cta-two">Ready to Turn Worry Into Clarity?</h2>
-                            <div className="button-primary-wrap"><a href="#" className="button-primary white w-button">Start Chat Now</a></div>
+                            <div className="button-primary-wrap"><Button onClick={handleSubmit} className="button-primary white w-button">Start Chat Now</Button></div>
                         </div>
                         <div data-w-id="94547a58-0949-cde7-2711-4cc424047d44"
                             className="footer-content margin-top-60px">
                             <div id="w-node-_94547a58-0949-cde7-2711-4cc424047d45-b42bc025" className="footer-block"><Link href="/"
                                 className="footer-logo-link-block w-inline-block">
-                                    {/* <img
+                                {/* <img
                                     src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65d1a4024399efb60073c983_medcare-white-logo.png"
                                     loading="lazy" alt="Footer Logo" className="logo-image" /> */}
-                                    <Image src={FooterLogo} alt="Footer Logo" className="logo-image" width={189} height={40} />
-                                    </Link>
+                                <Image src={FooterLogo} alt="Footer Logo" className="logo-image" width={189} height={40} />
+                            </Link>
                                 <div className="footer-address white-color">Clarity for your health concerns. Instant, anonymous, and free.</div>
                                 {/* <div className="social-block"><a href="https://www.facebook.com/" target="_blank"
                                     className="footer-social-link-two w-inline-block">
@@ -105,7 +129,7 @@ export default function Footer() {
             </section>
             <div className="copy-right-block two">
                 <div className="w-layout-blockcontainer container w-container">
-                    <div className="footer-copyright-center white-color">Copyright © {year} <a href="https://needaan-nextjs.vercel.app/" 
+                    <div className="footer-copyright-center white-color">Copyright © {year} <a href="https://needaan-nextjs.vercel.app/"
                         className="template-link white-color"> Needaan </a>| Devloped by <a href="https://technocometsolutions.com/" target="_blank"
                             className="brandbes-link white-color">Technoocomet Solutions </a>
                         {/* - Powered by <a
