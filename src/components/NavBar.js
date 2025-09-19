@@ -8,18 +8,45 @@ import Needaan_Logo from '../assets/image/Needaan_Logo.png'
 import '@/style/navbar.css'
 import useSessionStart from '@/app/hooks/useSessionStart';
 import { Button } from 'react-bootstrap';
+import { useWebSocket } from '@/context/WebSocketContext';
 
 export default function NavBar({ onResponse }) {
     const router = useRouter();
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [session_id, setSession_id] = useState('');
-    const [response, setResponse] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    // console.log("responsedata", response);
     
+    // Use centralized WebSocket context
+    const { 
+        connectWebSocket, 
+        sessionId, 
+        connectionStatus, 
+        isSessionStarted,
+        error 
+    } = useWebSocket();
 
     // const { createSecurity } = useSessionStart()
+
+    // Handle automatic navigation when session is established
+    useEffect(() => {
+        console.log("🔍 587", { sessionId, isSessionStarted, isLoading, connectionStatus });
+        if (sessionId && isSessionStarted && isLoading) {
+            console.log("🎯 Auto-navigation: Session established, navigating to chat with ID:", sessionId);
+            router.push(`/chatboad/${sessionId}`);
+            setIsLoading(false);
+        }
+    }, [sessionId, isSessionStarted, isLoading, router, connectionStatus]);
+
+    // Handle errors during loading
+    useEffect(() => {
+        if (error && isLoading) {
+            console.error("❌ WebSocket error during loading:", error);
+            const fallbackId = `error_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+            console.log("🔄 Using error fallback session ID:", fallbackId);
+            router.push(`/chatboad/${fallbackId}`);
+            setIsLoading(false);
+        }
+    }, [error, isLoading, router]);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -29,115 +56,35 @@ export default function NavBar({ onResponse }) {
         setIsMobileMenuOpen(false);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         // Set loading state to true when starting WebSocket connection
         setIsLoading(true);
         
-        // Create WebSocket connection to get session ID
-        const ws = new WebSocket('ws://192.168.0.131:8000/ws/chat/');
-        
-        ws.onopen = () => {
-            console.log("WebSocket connected for session ID generation");
-            // Wait for connection_established message before sending start_session
-        };
-        
-        ws.onmessage = (event) => {
-            try {
-                const data = JSON.parse(event.data);
-                console.log("sessionidresponse", data);
-                console.log("Response type:", typeof data);
-                console.log("Response keys:", Object.keys(data));
-                
-                // Handle connection_established message
-                if (data.type === "connection_established") {
-                    console.log("Connection established, now sending start_session request");
-                    // Send start_session request after connection is established
-                    ws.send(JSON.stringify({ type: "start_session" }));
-                    return; // Wait for the next message
-                }
-                
-                let sessionId = null;
-                
-                // Handle the session_started response format
-                if (data.type === "session_started" && data.session_id) {
-                    sessionId = data.session_id;
-                    console.log("Found session_started with session_id:", sessionId);
-                } else if (data.session_id) {
-                    sessionId = data.session_id;
-                    console.log("Found session_id:", sessionId);
-                } else if (data.sessionId) {
-                    sessionId = data.sessionId;
-                    console.log("Found sessionId:", sessionId);
-                } else if (data.id) {
-                    sessionId = data.id;
-                    console.log("Found id:", sessionId);
-                } else {
-                    console.log("No session ID found in expected format");
-                }
-                
-                if (sessionId) {
-                    console.log("🎉 Using session ID:", sessionId);
-                    setSession_id(sessionId);
-                    setResponse(data);
-                    
-                    // Store message in sessionStorage instead of URL
-                    if (data.message) {
-                        sessionStorage.setItem(`initial_message_${sessionId}`, data.message);
-                        console.log("Stored initial message in sessionStorage:", data.message);
-                    }
-                    
-                    router.push(`/chatboad/${sessionId}`);
-                    ws.close();
-                    setIsLoading(false);
-                } else {
-                    console.log(" No session ID found, generating fallback ID");
-                    // Generate a unique fallback ID
-                    const fallbackId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-                    console.log(" Using fallback ID:", fallbackId);
-                    setSession_id(fallbackId);
-                    setResponse({ ...data, session_id: fallbackId });
-                    
-                    // Store message in sessionStorage instead of URL
-                    if (data.message) {
-                        sessionStorage.setItem(`initial_message_${fallbackId}`, data.message);
-                        console.log("Stored initial message in sessionStorage for fallback:", data.message);
-                    }
-                    
+        try {
+            // Use centralized WebSocket connection
+            console.log("🚀 Starting WebSocket connection from NavBar...");
+            await connectWebSocket();
+            
+            // Set a timeout fallback in case session doesn't establish
+            setTimeout(() => {
+                if (isLoading) {
+                    console.warn("⏰ Session establishment timeout, using fallback ID");
+                    const fallbackId = `timeout_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+                    console.log("🔄 Using timeout fallback session ID:", fallbackId);
                     router.push(`/chatboad/${fallbackId}`);
-                    ws.close();
                     setIsLoading(false);
                 }
-            } catch (error) {
-                console.error(" Error parsing session response:", error);
-                console.log("Raw event data:", event.data);
-                // Generate fallback ID on error
-                const fallbackId = `error_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-                console.log("Using error fallback ID:", fallbackId);
-                setSession_id(fallbackId);
-                router.push(`/chatboad/${fallbackId}`);
-                ws.close();
-                setIsLoading(false);
-            }
-        };
-        
-        ws.onerror = (error) => {
-            console.error("WebSocket error during session creation:", error);
-            // Fallback to hardcoded ID on connection error
+            }, 10000); // 10 second timeout
+            
+        } catch (connectionError) {
+            console.error("❌ Failed to establish WebSocket connection:", connectionError);
+            // Generate fallback ID on connection error
+            const fallbackId = `error_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+            console.log("🔄 Using connection error fallback session ID:", fallbackId);
+            router.push(`/chatboad/${fallbackId}`);
             setIsLoading(false);
-            router.push(`/chatboad/1010`);
-        };
-        
-        ws.onclose = (event) => {
-            console.log("WebSocket closed after session ID generation");
-            // Ensure loading is false when connection closes
-            setIsLoading(false);
-        };
-    };
-    useEffect(() => {
-        if (onResponse) {
-            onResponse(response);
         }
-    }, [response, onResponse]);
+    };
 
     return (
         <>

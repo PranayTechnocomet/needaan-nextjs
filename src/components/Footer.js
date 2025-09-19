@@ -1,44 +1,140 @@
 "use client"
 import Link from 'next/link';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import FooterLogo from '../assets/image/FooterLogo.png'
 // import FooterLogo from '../assets/image/Needaan_Logo.png'
 import Image from 'next/image';
 import '../style/global.css'
-import useSessionStart from '@/app/hooks/useSessionStart';
 import { Button } from 'react-bootstrap';
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useWebSocket } from '@/context/WebSocketContext';
 
 export default function Footer() {
     const router = useRouter();
     const year = new Date().getFullYear();
-    const { createSecurity } = useSessionStart()
-    const [session_id, setSession_id] = useState('');
-    const [response, setResponse] = useState('');
-    // console.log("response1212", response);
+    const [isLoading, setIsLoading] = useState(false);
     
+    // Use centralized WebSocket context
+    const { 
+        connectWebSocket, 
+        sessionId, 
+        connectionStatus, 
+        isSessionStarted,
+        error 
+    } = useWebSocket();
+
+    // Handle automatic navigation when session is established
+    useEffect(() => {
+        console.log("🔍 Footer WebSocket Status:", { sessionId, isSessionStarted, isLoading, connectionStatus });
+        if (sessionId && isSessionStarted && isLoading) {
+            console.log("🎯 Footer Auto-navigation: Session established, navigating to chat with ID:", sessionId);
+            router.push(`/chatboad/${sessionId}`);
+            setIsLoading(false);
+        }
+    }, [sessionId, isSessionStarted, isLoading, router, connectionStatus]);
+
+    // Handle errors during loading
+    useEffect(() => {
+        if (error && isLoading) {
+            console.error("❌ Footer WebSocket error during loading:", error);
+            const fallbackId = `error_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+            console.log("🔄 Footer Using error fallback session ID:", fallbackId);
+            router.push(`/chatboad/${fallbackId}`);
+            setIsLoading(false);
+        }
+    }, [error, isLoading, router]);
     
-    const handleSubmit = () => {
-        createSecurity({ action: "start" })
-            .then((res) => {
-                
-                setSession_id(res.session_id);
-                setResponse(res.response);
-                router.push(`/chatboad/${res.session_id}`);
-            })
-            .catch((err) => {
-                console.log("Error in handleSubmit", err);
-            });
+    const handleSubmit = async () => {
+        // Set loading state to true when starting WebSocket connection
+        setIsLoading(true);
+        
+        try {
+            // Use centralized WebSocket connection
+            console.log("🚀 Starting WebSocket connection from Footer...");
+            await connectWebSocket();
+            
+            // Set a timeout fallback in case session doesn't establish
+            setTimeout(() => {
+                if (isLoading) {
+                    console.warn("⏰ Footer Session establishment timeout, using fallback ID");
+                    const fallbackId = `timeout_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+                    console.log("🔄 Footer Using timeout fallback session ID:", fallbackId);
+                    router.push(`/chatboad/${fallbackId}`);
+                    setIsLoading(false);
+                }
+            }, 10000); // 10 second timeout
+            
+        } catch (connectionError) {
+            console.error("❌ Footer Failed to establish WebSocket connection:", connectionError);
+            // Generate fallback ID on connection error
+            const fallbackId = `error_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+            console.log("🔄 Footer Using connection error fallback session ID:", fallbackId);
+            router.push(`/chatboad/${fallbackId}`);
+            setIsLoading(false);
+        }
     };
     return (
         <>
+            {/* Loading Overlay */}
+            {isLoading && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    zIndex: 9999
+                }}>
+                    <div style={{
+                        backgroundColor: 'transparent',
+                        padding: '20px',
+                        borderRadius: '10px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: '15px'
+                    }}>
+                        {/* Loading Spinner */}
+                        <div style={{
+                            width: '50px',
+                            height: '50px',
+                            border: '4px solid rgba(255, 255, 255, 0.3)',
+                            borderTop: '4px solid #ffffff',
+                            borderRadius: '50%',
+                            animation: 'spin 1s linear infinite'
+                        }}></div>
+                        <p style={{
+                            color: '#ffffff',
+                            margin: 0,
+                            fontSize: '16px',
+                            fontWeight: '500'
+                        }}>Connecting to chat...</p>
+                    </div>
+                </div>
+            )}
+            
             <section className="footer-section two">
                 <div className="w-layout-blockcontainer container w-container">
                     <div className="footer-block-wrapper">
                         <div className="call-to-actions-wrap">
                             <h2 className="section-title cta-two">Ready to Turn Worry Into Clarity?</h2>
-                            <div className="button-primary-wrap"><Button onClick={handleSubmit} className="button-primary white w-button">Start Chat Now</Button></div>
+                            <div className="button-primary-wrap">
+                                <Button 
+                                    onClick={handleSubmit} 
+                                    className="button-primary white w-button"
+                                    disabled={isLoading}
+                                    style={{
+                                        opacity: isLoading ? 0.6 : 1,
+                                        cursor: isLoading ? 'not-allowed' : 'pointer'
+                                    }}
+                                >
+                                    {isLoading ? 'Connecting...' : 'Start Chat Now'}
+                                </Button>
+                            </div>
                         </div>
                         <div data-w-id="94547a58-0949-cde7-2711-4cc424047d44"
                             className="footer-content margin-top-60px">
