@@ -82,7 +82,7 @@ export default function PrivecyPolicy() {
                             </div> */}
 
                         <div className="w-layout-blockcontainer container w-container ">
-                            <h1 className="section-title about-hero privecy-policy-heading privecy-policy-heading-section all-heading-tag-data">Privacy Policy for needan</h1>
+                            <h1 className="section-title about-hero privecy-policy-heading privecy-policy-heading-section all-heading-tag-data">Privacy Policy for needaan</h1>
                             <p data-w-id="27e0852a-c8d0-6d59-dc4b-c74a8e684451" className="about-hero-description privecy-policy-section">Our Service is designed to be anonymous. We do not require you to create an account, sign in, or provide any Personal Identifiable Information (PII) like your name, email address, or phone number.</p>
                             <div className="privecy-policy-content">
                                 <h3>1. Information We Collect</h3>
@@ -136,7 +136,7 @@ export default function PrivecyPolicy() {
                             <div className='privecy-policy-content'>
                                 <h3>8. Contact Us</h3>
                                 <div className='privecy-policy-data-p'>
-                                    <p>If you have any questions about this Privacy Policy, please contact us at [contact@needan.com].</p>
+                                    <p>If you have any questions about this Privacy Policy, please contact us at [contact@needaan.com].</p>
                                 </div>
                             </div>
                         </div>

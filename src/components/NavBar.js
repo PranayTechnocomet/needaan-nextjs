@@ -5,10 +5,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import MedCareLogo from '../assets/image/MedCareLogo.png'
 import Needaan_Logo from '../assets/image/Needaan_Logo.png'
-import '@/style/navbar.css'
+import '../style/navbar.css'
 import useSessionStart from '@/app/hooks/useSessionStart';
 import { Button } from 'react-bootstrap';
 import { useWebSocket } from '@/context/WebSocketContext';
+import Needan_Logo2 from '../assets/image/Needan_Logo2.png'
+import Needan_logo_White from '../assets/image/Needan_logo_White.png'
 
 export default function NavBar({ onResponse }) {
     const router = useRouter();
@@ -140,7 +142,7 @@ export default function NavBar({ onResponse }) {
                                     src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65c9a4e9f78ae07595c9f519_medcare-logo.png"
                                     loading="lazy" alt="Logo Image" className="logo" /> */}
                                 {/* <Image src={MedCareLogo} alt="Logo Image" loading="lazy" className="logo" width={189} height={40} /> */}
-                                <Image src={Needaan_Logo} alt="Logo Image" loading="lazy" className="logo" width={210} height={45} />
+                                <Image src={Needan_Logo2} alt="Logo Image" loading="lazy" className="logo" width={210} height={45} />
                             </Link>
                                 <nav role="navigation" className={`nav-menu-wrap w-nav-menu ${isMobileMenuOpen ? 'w--open' : ''}`}>
                                     <div className="nav-menu-list-wrapper">

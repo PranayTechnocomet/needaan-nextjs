@@ -2,12 +2,14 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react'
 import FooterLogo from '../assets/image/FooterLogo.png'
+import Needan_logo_White from '../assets/image/Needan_logo_White.png'
 // import FooterLogo from '../assets/image/Needaan_Logo.png'
 import Image from 'next/image';
 import '../style/global.css'
 import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/navigation';
 import { useWebSocket } from '@/context/WebSocketContext';
+
 
 export default function Footer() {
     const router = useRouter();
@@ -141,7 +143,7 @@ export default function Footer() {
                             <div id="w-node-_94547a58-0949-cde7-2711-4cc424047d45-b42bc025" className="footer-block"><Link href="/"
                                 className="footer-logo-link-block w-inline-block">
                                
-                                <Image src={FooterLogo} alt="Footer Logo" className="logo-image" width={189} height={40} />
+                                <Image src={Needan_logo_White} alt="Footer Logo" className="logo-image" width={200} height={45} />
                             </Link>
                                 <div className="footer-address white-color">Clarity for your health concerns. Instant, anonymous, and free.</div>
                                 {/* <div className="social-block"><a href="https://www.facebook.com/" target="_blank"

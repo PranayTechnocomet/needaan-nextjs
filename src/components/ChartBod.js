@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Container, Card, Row, Col, Form, Button, InputGroup } from "react-bootstrap";
 import '../style/chartbod.css'
 import Link from "next/link";
@@ -908,6 +908,10 @@ export default function App({ sessionId, onResponse }) {
   const [navBarResponse, setNavBarResponse] = useState("");
   const [chatResponses, setChatResponses] = useState("");
 
+  // SSR-safe mounting system
+  const [isMounted, setIsMounted] = useState(false);
+  const isClient = typeof window !== 'undefined';
+
   // State for conditional UI elements
   const [selectedAge, setSelectedAge] = useState("");
   const [selectedGender, setSelectedGender] = useState("");
@@ -926,31 +930,320 @@ export default function App({ sessionId, onResponse }) {
 
   // Conversation count state for button control
   const [conversationCount, setConversationCount] = useState(0);
+  const [showInputAfterCount, setShowInputAfterCount] = useState(false);
 
   // Define handleNavBarResponse function
   const handleNavBarResponse = (value) => {
     setNavBarResponse(value);
   };
 
-  // Use centralized WebSocket connection
+  // Use centralized WebSocket connection (always call hook)
+  const webSocketContext = useWebSocket();
   const {
-    messages: socketMessages,
-    sendMessage,
-    isSessionStarted,
-    connectionStatus,
-    error,
-    sessionId: wsSessionId,
-    initialMessage,
-    connectWebSocket
-  } = useWebSocket();
+    messages: socketMessages = [],
+    sendMessage = () => {},
+    isSessionStarted = false,
+    connectionStatus = 'disconnected',
+    error = null,
+    sessionId: wsSessionId = session_id,
+    initialMessage = null,
+    connectWebSocket = () => {}
+  } = isMounted ? webSocketContext : {};
+
+  // SessionStorage helper functions
+  const getStorageKey = useCallback((key) => {
+    return `needaan_chartbod_${key}_${wsSessionId || session_id}`;
+  }, [wsSessionId, session_id]);
+
+  const loadFromStorage = useCallback((key, defaultValue) => {
+    if (!isClient || !isMounted) return defaultValue;
+    try {
+      const item = sessionStorage.getItem(getStorageKey(key));
+      return item ? JSON.parse(item) : defaultValue;
+    } catch (error) {
+      console.warn(`Failed to load ${key} from storage:`, error);
+      return defaultValue;
+    }
+  }, [getStorageKey, isClient, isMounted]);
+
+  const saveToStorage = useCallback((key, value) => {
+    if (!isClient || !isMounted) return;
+    try {
+      sessionStorage.setItem(getStorageKey(key), JSON.stringify(value));
+    } catch (error) {
+      console.warn(`Failed to save ${key} to storage:`, error);
+    }
+  }, [getStorageKey, isClient, isMounted]);
+
+  const clearStorageForSession = useCallback(() => {
+    if (!isClient || !isMounted) return;
+    try {
+      const keys = Object.keys(sessionStorage);
+      const sessionKeys = keys.filter(key => key.includes(`_${wsSessionId || session_id}`));
+      sessionKeys.forEach(key => sessionStorage.removeItem(key));
+    } catch (error) {
+      console.warn('Failed to clear session storage:', error);
+    }
+  }, [isClient, isMounted, wsSessionId, session_id]);
 
   // Create isConnected helper from connectionStatus
   const isConnected = connectionStatus === 'connected';
 
   const [messages, setMessages] = useState([]);
 
+  // Enhanced state setters with automatic persistence
+  const setSelectedAgeWithStorage = useCallback((value) => {
+    setSelectedAge(value);
+    saveToStorage('selectedAge', value);
+  }, [saveToStorage]);
+
+  const setSelectedGenderWithStorage = useCallback((value) => {
+    setSelectedGender(value);
+    saveToStorage('selectedGender', value);
+  }, [saveToStorage]);
+
+  const setLastAiMessageWithStorage = useCallback((value) => {
+    setLastAiMessage(value);
+    saveToStorage('lastAiMessage', value);
+  }, [saveToStorage]);
+
+  const setIsGenderSelectionActiveWithStorage = useCallback((value) => {
+    setIsGenderSelectionActive(value);
+    saveToStorage('isGenderSelectionActive', value);
+  }, [saveToStorage]);
+
+  const setGenderSelectionCompletedWithStorage = useCallback((value) => {
+    setGenderSelectionCompleted(value);
+    saveToStorage('genderSelectionCompleted', value);
+  }, [saveToStorage]);
+
+  const setHasConnectedOnceWithStorage = useCallback((value) => {
+    setHasConnectedOnce(value);
+    saveToStorage('hasConnectedOnce', value);
+  }, [saveToStorage]);
+
+  const setConversationCountWithStorage = useCallback((value) => {
+    setConversationCount(value);
+    saveToStorage('conversationCount', value);
+  }, [saveToStorage]);
+
+  const setShowInputAfterCountWithStorage = useCallback((value) => {
+    setShowInputAfterCount(value);
+    saveToStorage('showInputAfterCount', value);
+  }, [saveToStorage]);
+
+  const setReportDataWithStorage = useCallback((value) => {
+    setReportData(value);
+    saveToStorage('reportData', value);
+  }, [saveToStorage]);
+
+  const setMessagesWithStorage = useCallback((value) => {
+    setMessages(value);
+    saveToStorage('messages', value);
+  }, [saveToStorage]);
+
+  // SSR-safe mounting effect
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // State restoration system
+  useEffect(() => {
+    if (!isMounted) return;
+
+    // Restore all critical states from sessionStorage
+    const restoredSelectedAge = loadFromStorage('selectedAge', '');
+    const restoredSelectedGender = loadFromStorage('selectedGender', '');
+    const restoredLastAiMessage = loadFromStorage('lastAiMessage', '');
+    const restoredIsGenderSelectionActive = loadFromStorage('isGenderSelectionActive', false);
+    const restoredGenderSelectionCompleted = loadFromStorage('genderSelectionCompleted', false);
+    const restoredHasConnectedOnce = loadFromStorage('hasConnectedOnce', false);
+    const restoredConversationCount = loadFromStorage('conversationCount', 0);
+    const restoredShowInputAfterCount = loadFromStorage('showInputAfterCount', false);
+    const restoredReportData = loadFromStorage('reportData', null);
+    const restoredMessages = loadFromStorage('messages', []);
+
+    // Apply restored states
+    if (restoredSelectedAge) setSelectedAge(restoredSelectedAge);
+    if (restoredSelectedGender) setSelectedGender(restoredSelectedGender);
+    if (restoredLastAiMessage) setLastAiMessage(restoredLastAiMessage);
+    setIsGenderSelectionActive(restoredIsGenderSelectionActive);
+    setGenderSelectionCompleted(restoredGenderSelectionCompleted);
+    setHasConnectedOnce(restoredHasConnectedOnce);
+    setConversationCount(restoredConversationCount);
+    setShowInputAfterCount(restoredShowInputAfterCount);
+    if (restoredReportData) setReportData(restoredReportData);
+    if (restoredMessages && restoredMessages.length > 0) setMessages(restoredMessages);
+
+    console.log('✅ State restored from sessionStorage:', {
+      selectedAge: restoredSelectedAge,
+      selectedGender: restoredSelectedGender,
+      conversationCount: restoredConversationCount,
+      messagesCount: restoredMessages?.length || 0
+    });
+  }, [isMounted, loadFromStorage]);
+
+  // All remaining hooks must be called before any conditional logic
+  const { startChats } = useSessionStart();
+  const [input, setInput] = useState("");
+  const chatEndRef = useRef(null);
+
+  const scrollToBottom = useCallback(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, scrollToBottom]);
+
+  // Handle initial message from WebSocket context
+  useEffect(() => {
+    if (!isMounted) return;
+    
+    // Check if we have initial message from context and no messages yet
+    if (initialMessage && messages.length === 0) {
+      console.log("📨 Received initial message from WebSocket context:", initialMessage);
+      
+      // Create initial message object
+      const initialMessageObj = {
+        id: `initial-${Date.now()}-${Math.random()}`,
+        text: initialMessage,
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        sender: "receiver",
+        date: "Today",
+        status: "received",
+        type: "initial"
+      };
+      
+      // Add initial message to messages state with persistence
+      setMessagesWithStorage([initialMessageObj]);
+      setLastAiMessageWithStorage(initialMessage);
+      
+      // Check if this initial message requires gender selection
+      if (initialMessage.toLowerCase().includes("gender") && !genderSelectionCompleted && !selectedGender) {
+        setIsGenderSelectionActiveWithStorage(true);
+      }
+      
+      // Mark as connected once we have initial message
+      setHasConnectedOnceWithStorage(true);
+      
+      console.log("✅ Initial message added to chat:", initialMessageObj);
+    }
+  }, [isMounted, initialMessage, messages.length, genderSelectionCompleted, selectedGender, setMessagesWithStorage, setLastAiMessageWithStorage, setIsGenderSelectionActiveWithStorage, setHasConnectedOnceWithStorage]);
+
+  // Helper: derive total exchanges from current chat messages
+  const computeExchangesFromMessages = useCallback((msgs) => {
+    try {
+      return (msgs || []).filter(m => m && (m.sender === 'sender' || m.sender === 'receiver')).length;
+    } catch (_) {
+      return (msgs || []).length || 0;
+    }
+  }, []);
+
+  // Handle incoming WebSocket messages
+  useEffect(() => {
+    if (!isMounted) return;
+    
+    if (socketMessages && socketMessages.length > 0) {
+      const latestMessage = socketMessages[socketMessages.length - 1];
+
+      // Validate latestMessage structure to prevent server errors
+      if (!latestMessage || typeof latestMessage !== 'object') {
+        console.warn("⚠️ Invalid message format received:", latestMessage);
+        return;
+      }
+
+      // If server sent a report, show it in modal instead of inline
+      if (latestMessage && latestMessage.type === 'report_generated') {
+        // Prefer backend count; fallback to current chat-derived count
+        const backendCount = latestMessage?.report?.total_exchanges;
+        const derivedCount = computeExchangesFromMessages(messages);
+        const total_exchanges = typeof backendCount === 'number' ? backendCount : derivedCount;
+
+        const reportWithCount = {
+          ...latestMessage.report,
+          total_exchanges,
+        };
+
+        // Set report data and show modal with persistence
+        setReportDataWithStorage({
+          type: 'report_generated',
+          message: latestMessage.message,
+          report: reportWithCount
+        });
+        setShowReportModal(true);
+        setIsGeneratingReport(false);
+
+        console.log("📋 Report received, showing modal:", reportWithCount);
+        return;
+      }
+      
+      // Handle chat type messages with the new format
+      if (latestMessage && (latestMessage.type === 'chat' || latestMessage.type === 'chat_response' || latestMessage.message)) {
+        // Extract conversation count from WebSocket response with persistence
+        if (typeof latestMessage.conversation_count === 'number') {
+          setConversationCountWithStorage(latestMessage.conversation_count);
+          console.log("📊 Conversation count updated:", latestMessage.conversation_count);
+        }
+
+        // Safely extract message text to prevent server errors
+        let messageText;
+        if (latestMessage.type === 'chat' || latestMessage.type === 'chat_response') {
+          messageText = typeof latestMessage.message === 'string' ? latestMessage.message :
+            typeof latestMessage.message === 'object' ? JSON.stringify(latestMessage.message) :
+              String(latestMessage.message || 'Empty message');
+        } else {
+          messageText = typeof latestMessage.message === 'string' ? latestMessage.message :
+            typeof latestMessage.message === 'object' ? JSON.stringify(latestMessage.message) :
+              String(latestMessage.message || 'Empty message');
+        }
+
+        const newMessage = {
+          id: `ws-${Date.now()}-${Math.random()}`,
+          text: messageText,
+          time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+          sender: "receiver",
+          date: "Today",
+          status: "received",
+          type: latestMessage.type || "chat"
+        };
+
+        setMessages(prev => {
+          // Check if message already exists to avoid duplicates
+          const exists = prev.some(msg => msg.text === newMessage.text && msg.time === newMessage.time);
+          if (!exists) {
+            // Update last AI message for conditional UI with persistence
+            setLastAiMessageWithStorage(newMessage.text);
+
+            // Check if this message requires gender selection (only for the first time)
+            if (newMessage.text.toLowerCase().includes("gender") && !genderSelectionCompleted && !selectedGender) {
+              setIsGenderSelectionActiveWithStorage(true);
+            }
+
+            // Mark as connected once we receive first message
+            if (!hasConnectedOnce) {
+              setHasConnectedOnceWithStorage(true);
+            }
+
+            // Hide typing indicator when response arrives
+            setIsTyping(false);
+
+            const updatedMessages = [...prev, newMessage];
+            // Save to storage
+            saveToStorage('messages', updatedMessages);
+            return updatedMessages;
+          }
+          return prev;
+        });
+        console.log("set-2");
+      }
+    }
+  }, [isMounted, socketMessages, genderSelectionCompleted, selectedGender, hasConnectedOnce, messages, setLastAiMessageWithStorage, setIsGenderSelectionActiveWithStorage, setHasConnectedOnceWithStorage, setConversationCountWithStorage, setReportDataWithStorage, saveToStorage, computeExchangesFromMessages]);
+
   // Create sendReportRequest function using centralized WebSocket
-  const sendReportRequest = () => {
+  const sendReportRequest = useCallback(() => {
+    if (!isMounted) return;
+    
     // Check if conversation count is sufficient
     if (conversationCount < 5) {
       console.warn(`⚠️ Cannot generate report: Need at least 5 conversations (current: ${conversationCount})`);
@@ -967,7 +1260,142 @@ export default function App({ sessionId, onResponse }) {
     } else {
       console.error("❌ SendMessage function not available");
     }
-  };
+  }, [isMounted, conversationCount, sendMessage]);
+
+  // Handle send message function
+  const handleSend = useCallback(() => {
+    if (!isMounted) return;
+    if (input.trim() === "") return;
+
+    // Check if WebSocket is connected and session is started
+    if (!isConnected || !isSessionStarted) {
+      console.warn("Cannot send message: WebSocket not connected or session not started");
+      return;
+    }
+
+    // Add user message to local state
+    const newMsg = {
+      id: `user-${Date.now()}-${Math.random()}`,
+      text: input,
+      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      sender: "sender",
+      date: "Today",
+      status: "sent",
+    };
+
+    setMessages(prevMessages => {
+      const updatedMessages = [...prevMessages, newMsg];
+      saveToStorage('messages', updatedMessages);
+      return updatedMessages;
+    });
+    console.log("set-3");
+
+    // Show typing indicator when sending message
+    setIsTyping(true);
+
+    // Send message via WebSocket
+    sendMessage(input);
+
+    setInput("");
+  }, [isMounted, input, isConnected, isSessionStarted, sendMessage, saveToStorage]);
+
+  // Handle dropdown selections
+  const handleAgeSelect = useCallback((age) => {
+    if (!isMounted) return;
+    setSelectedAgeWithStorage(age);
+    // Auto-send the selected age
+    if (age && isConnected && isSessionStarted) {
+      const ageMsg = {
+        id: `age-${Date.now()}-${Math.random()}`,
+        text: age,
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        sender: "sender",
+        date: "Today",
+        status: "sent",
+      };
+      setMessages(prevMessages => {
+        const updatedMessages = [...prevMessages, ageMsg];
+        saveToStorage('messages', updatedMessages);
+        return updatedMessages;
+      });
+      console.log("set-4");
+
+      // Show typing indicator when sending age
+      setIsTyping(true);
+
+      sendMessage(age);
+    }
+  }, [isMounted, isConnected, isSessionStarted, sendMessage, setSelectedAgeWithStorage, saveToStorage]);
+
+  const handleGenderSelect = useCallback((gender) => {
+    if (!isMounted) return;
+    if (genderSelectionCompleted) return; // Prevent multiple selections
+
+    setSelectedGenderWithStorage(gender);
+    setGenderSelectionCompletedWithStorage(true);
+    setIsGenderSelectionActiveWithStorage(false);
+
+    // Auto-send the selected gender
+    if (gender && isConnected && isSessionStarted) {
+      const genderMsg = {
+        id: `gender-${Date.now()}-${Math.random()}`,
+        text: gender,
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        sender: "sender",
+        date: "Today",
+        status: "sent",
+      };
+      setMessages(prevMessages => {
+        const updatedMessages = [...prevMessages, genderMsg];
+        saveToStorage('messages', updatedMessages);
+        return updatedMessages;
+      });
+      console.log("set-5");
+
+      // Show typing indicator when sending gender
+      setIsTyping(true);
+
+      sendMessage(gender);
+    }
+  }, [isMounted, genderSelectionCompleted, isConnected, isSessionStarted, sendMessage, setSelectedGenderWithStorage, setGenderSelectionCompletedWithStorage, setIsGenderSelectionActiveWithStorage, saveToStorage]);
+
+  const groupByDate = useCallback((messages) => {
+    return messages.reduce((acc, msg) => {
+      (acc[msg.date] = acc[msg.date] || []).push(msg);
+      return acc;
+    }, {});
+  }, []);
+
+  // Early return with loading state if not mounted (SSR safety)
+  if (!isMounted) {
+    return (
+      <div className="page-wrapper main-chatboad">
+        <div className="main-wrapper">
+          <div className="w-layout-blockcontainer container w-container">
+            <Container fluid className="chat-container p-0">
+              <Card className="chat-card">
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  height: '400px',
+                  flexDirection: 'column'
+                }}>
+                  <LoadingSpinner className="loading-spinner" style={{
+                    animation: 'spin 1s linear infinite',
+                    color: '#43ba7f',
+                    marginBottom: '20px'
+                  }} />
+                  <p>Loading chat...</p>
+                </div>
+              </Card>
+            </Container>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
 
   // Functions to handle report modal
   const handleDownloadReport = async () => {
@@ -1297,250 +1725,10 @@ export default function App({ sessionId, onResponse }) {
     );
   };
 
-  // Handle initial message from WebSocket context
-  useEffect(() => {
-    // Check if we have initial message from context and no messages yet
-    if (initialMessage && messages.length === 0) {
-      console.log("📨 Received initial message from WebSocket context:", initialMessage);
-      
-      // Create initial message object
-      const initialMessageObj = {
-        id: `initial-${Date.now()}-${Math.random()}`,
-        text: initialMessage,
-        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        sender: "receiver",
-        date: "Today",
-        status: "received",
-        type: "initial"
-      };
-      
-      // Add initial message to messages state
-      setMessages([initialMessageObj]);
-      setLastAiMessage(initialMessage);
-      
-      // Check if this initial message requires gender selection
-      if (initialMessage.toLowerCase().includes("gender") && !genderSelectionCompleted && !selectedGender) {
-        setIsGenderSelectionActive(true);
-      }
-      
-      // Mark as connected once we have initial message
-      setHasConnectedOnce(true);
-      
-      console.log("✅ Initial message added to chat:", initialMessageObj);
-    }
-  }, [initialMessage, messages.length, genderSelectionCompleted, selectedGender]);
-
-  const { startChats } = useSessionStart();
-  const [input, setInput] = useState("");
-  // console.log("ThisIsInput", input);
-
-  const chatEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  // Handle incoming WebSocket messages
-  useEffect(() => {
-    if (socketMessages && socketMessages.length > 0) {
-      const latestMessage = socketMessages[socketMessages.length - 1];
-
-      // Validate latestMessage structure to prevent server errors
-      if (!latestMessage || typeof latestMessage !== 'object') {
-        console.warn("⚠️ Invalid message format received:", latestMessage);
-        return;
-      }
-
-      // If server sent a report, show it in modal instead of inline
-      if (latestMessage && latestMessage.type === 'report_generated') {
-        // Prefer backend count; fallback to current chat-derived count
-        const backendCount = latestMessage?.report?.total_exchanges;
-        const derivedCount = computeExchangesFromMessages(messages);
-        const total_exchanges = typeof backendCount === 'number' ? backendCount : derivedCount;
-
-        const reportWithCount = {
-          ...latestMessage.report,
-          total_exchanges,
-        };
-
-        // Set report data and show modal
-        setReportData({
-          type: 'report_generated',
-          message: latestMessage.message,
-          report: reportWithCount
-        });
-        setShowReportModal(true);
-        setIsGeneratingReport(false);
-
-        console.log("📋 Report received, showing modal:", reportWithCount);
-        return;
-      }
-      // Handle chat type messages with the new format
-      if (latestMessage && (latestMessage.type === 'chat' || latestMessage.type === 'chat_response' || latestMessage.message)) {
-        // Extract conversation count from WebSocket response
-        if (typeof latestMessage.conversation_count === 'number') {
-          setConversationCount(latestMessage.conversation_count);
-          console.log("📊 Conversation count updated:", latestMessage.conversation_count);
-        }
-
-        // Safely extract message text to prevent server errors
-        let messageText;
-        if (latestMessage.type === 'chat' || latestMessage.type === 'chat_response') {
-          messageText = typeof latestMessage.message === 'string' ? latestMessage.message :
-            typeof latestMessage.message === 'object' ? JSON.stringify(latestMessage.message) :
-              String(latestMessage.message || 'Empty message');
-        } else {
-          messageText = typeof latestMessage.message === 'string' ? latestMessage.message :
-            typeof latestMessage.message === 'object' ? JSON.stringify(latestMessage.message) :
-              String(latestMessage.message || 'Empty message');
-        }
-
-        const newMessage = {
-          id: Date.now(),
-          text: messageText,
-          time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-          sender: "receiver",
-          date: "Today",
-          status: "received",
-          type: latestMessage.type || "chat"
-        };
-
-        setMessages(prev => {
-          // Check if message already exists to avoid duplicates
-          const exists = prev.some(msg => msg.text === newMessage.text && msg.time === newMessage.time);
-          if (!exists) {
-            // Update last AI message for conditional UI
-            setLastAiMessage(newMessage.text);
-
-            // Check if this message requires gender selection (only for the first time)
-            if (newMessage.text.toLowerCase().includes("gender") && !genderSelectionCompleted && !selectedGender) {
-              setIsGenderSelectionActive(true);
-            }
-
-            // Mark as connected once we receive first message
-            if (!hasConnectedOnce) {
-              setHasConnectedOnce(true);
-            }
-
-            // Hide typing indicator when response arrives
-            setIsTyping(false);
-
-            return [...prev, newMessage];
-          }
-          return prev;
-        });
-        console.log("set-2");
-      }
-    }
-  }, [socketMessages, genderSelectionCompleted, selectedGender, hasConnectedOnce]);
 
 
-
-  const handleSend = () => {
-    if (input.trim() === "") return;
-
-    // Check if WebSocket is connected and session is started
-    if (!isConnected || !isSessionStarted) {
-      console.warn("Cannot send message: WebSocket not connected or session not started");
-      return;
-    }
-
-    // Add user message to local state
-    const newMsg = {
-      id: Date.now(),
-      text: input,
-      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      sender: "sender",
-      date: "Today",
-      status: "sent",
-    };
-
-    setMessages(prevMessages => [...prevMessages, newMsg]);
-    console.log("set-3");
-
-    // Show typing indicator when sending message
-    setIsTyping(true);
-
-    // Send message via WebSocket
-    sendMessage(input);
-
-    setInput("");
-  };
-
-  // Handle dropdown selections
-  const handleAgeSelect = (age) => {
-    setSelectedAge(age);
-    // Auto-send the selected age
-    if (age && isConnected && isSessionStarted) {
-      const ageMsg = {
-        id: Date.now(),
-        text: age,
-        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        sender: "sender",
-        date: "Today",
-        status: "sent",
-      };
-      setMessages(prevMessages => [...prevMessages, ageMsg]);
-      console.log("set-4");
-
-      // Show typing indicator when sending age
-      setIsTyping(true);
-
-      sendMessage(age);
-    }
-  };
-
-  const handleGenderSelect = (gender) => {
-    if (genderSelectionCompleted) return; // Prevent multiple selections
-
-    setSelectedGender(gender);
-    setGenderSelectionCompleted(true);
-    setIsGenderSelectionActive(false);
-
-    // Auto-send the selected gender
-    if (gender && isConnected && isSessionStarted) {
-      const genderMsg = {
-        id: Date.now(),
-        text: gender,
-        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        sender: "sender",
-        date: "Today",
-        status: "sent",
-      };
-      setMessages(prevMessages => [...prevMessages, genderMsg]);
-      console.log("set-5");
-
-      // Show typing indicator when sending gender
-      setIsTyping(true);
-
-      sendMessage(gender);
-    }
-  };
-
-  const groupByDate = (messages) => {
-    return messages.reduce((acc, msg) => {
-      (acc[msg.date] = acc[msg.date] || []).push(msg);
-      return acc;
-    }, {});
-  };
 
   const groupedMessages = groupByDate(messages);
-
-  // console.log("messages", messages);
-
-
-  // Helper: derive total exchanges from current chat messages
-  const computeExchangesFromMessages = (msgs) => {
-    try {
-      return (msgs || []).filter(m => m && (m.sender === 'sender' || m.sender === 'receiver')).length;
-    } catch (_) {
-      return (msgs || []).length || 0;
-    }
-  };
 
   return (
     <>
@@ -1552,8 +1740,8 @@ export default function App({ sessionId, onResponse }) {
 
             <Container fluid className="chat-container p-0">
               <Card className="chat-card" style={{ position: 'relative', overflow: 'hidden' }}>
-                {/* Loading Overlay */}
-                {(!isSessionStarted || (connectionStatus !== 'connected' && !hasConnectedOnce)) && (
+                {/* Loading Overlay - Only show when actually connecting for the first time */}
+                {(!isMounted || (connectionStatus === 'connecting' && !hasConnectedOnce)) && (
                   <div className="loading-overlay" style={{
                     position: 'absolute',
                     top: 0,
@@ -1584,9 +1772,7 @@ export default function App({ sessionId, onResponse }) {
                       fontWeight: '600',
                       textShadow: '0 1px 2px rgba(0,0,0,0.1)'
                     }}>
-                      {connectionStatus === 'connecting' ? 'Connecting to chat server...' :
-                        connectionStatus === 'error' ? 'Connection failed. Retrying...' :
-                          'Connected to chat server. Send a message to start chatting!'}
+                      {!isMounted ? 'Loading chat...' : 'Connecting...'}
                     </p>
                   </div>
                 )}
