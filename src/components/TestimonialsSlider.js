@@ -67,7 +67,7 @@ export default function TestimonialSlider() {
             image: Doctors1,
             name: "Priya S. ",
             designation: "Graphic Designer",
-            description: "Googling my symptoms was terrifying. A friend suggested needan, and relief was instant. It gave me a clear, calm list of possibilities and pointed me to the right specialist.",
+            description: "Googling my symptoms was terrifying. A friend suggested needaan, and relief was instant. It gave me a clear, calm list of possibilities and pointed me to the right specialist.",
             rating: 5
         },
         {

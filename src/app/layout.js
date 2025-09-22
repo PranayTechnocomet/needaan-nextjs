@@ -1,5 +1,7 @@
 import Script from "next/script";
-import "../style/global.css";
+import '@/style/yourself.css'
+import '@/style/home.css'
+import '@/style/global.css'
 import NavBar from "@/components/NavBar";
 import { Provider } from "react-redux";
 import store from "@/redux/store";

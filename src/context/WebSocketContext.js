@@ -55,10 +55,10 @@ export const WebSocketProvider = ({ children }) => {
         setConnectionStatus('connecting');
         setError(null);
         
-        console.log(`🔌 Attempting to connect to WebSocket: ws://192.168.0.131:8000/ws/chat/`);
+        console.log(`🔌 Attempting to connect to WebSocket: ws://192.168.0.106:8000/ws/chat/`);
         
         // Create WebSocket connection
-        const ws = new WebSocket(`ws://192.168.0.131:8000/ws/chat/`);
+        const ws = new WebSocket(`ws://192.168.0.106:8000/ws/chat/`);
 
         ws.onopen = () => {
           console.log("✅ WebSocket connected successfully");

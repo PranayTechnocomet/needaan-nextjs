@@ -77,8 +77,8 @@ export default function Cookie() {
                             </div> */}
 
                         <div className="w-layout-blockcontainer container w-container ">
-                            <h2 className="section-title about-hero privecy-policy-heading all-heading-tag-data">Cookie Policy for needan</h2>
-                            <p data-w-id="27e0852a-c8d0-6d59-dc4b-c74a8e684451" className="about-hero-description">{'Please read these Terms and Conditions ("Terms") carefully before using the needan website ([https://www.google.com/url?sa=E&source=gmail&q=yourwebsite.com]) operated by us. Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms.'}</p>
+                            <h2 className="section-title about-hero privecy-policy-heading all-heading-tag-data">Cookie Policy for needaan</h2>
+                            <p data-w-id="27e0852a-c8d0-6d59-dc4b-c74a8e684451" className="about-hero-description">{'Please read these Terms and Conditions ("Terms") carefully before using the needaan website ([https://www.google.com/url?sa=E&source=gmail&q=yourwebsite.com]) operated by us. Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms.'}</p>
                             <div className="privecy-policy-content">
                                 <h3>1. What Are Cookies?</h3>
                                 <div className='privecy-policy-data-p'>
@@ -112,7 +112,7 @@ export default function Cookie() {
                             <div className='privecy-policy-content'>
                                 <h3>5. Contact Us</h3>
                                 <div className='privecy-policy-data-p'>
-                                    <p>If you have any questions about our use of cookies, please contact us at [contact@needan.com].</p>
+                                    <p>If you have any questions about our use of cookies, please contact us at [contact@needaan.com].</p>
                                 </div>
                             </div>
 

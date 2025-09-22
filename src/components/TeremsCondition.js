@@ -78,18 +78,18 @@ export default function TeremsCondition() {
                             </div> */}
 
             <div className="w-layout-blockcontainer container w-container ">
-              <h1 className="section-title about-hero privecy-policy-heading all-heading-tag-data">Terms and Conditions for needan</h1>
-              <p data-w-id="27e0852a-c8d0-6d59-dc4b-c74a8e684451" className="about-hero-description">{'Please read these Terms and Conditions ("Terms") carefully before using the needan website ([https://www.google.com/url?sa=E&source=gmail&q=yourwebsite.com]) operated by us. Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms.'}</p>
+              <h1 className="section-title about-hero privecy-policy-heading all-heading-tag-data">Terms and Conditions for needaan</h1>
+              <p data-w-id="27e0852a-c8d0-6d59-dc4b-c74a8e684451" className="about-hero-description">{'Please read these Terms and Conditions ("Terms") carefully before using the needaan website ([https://www.google.com/url?sa=E&source=gmail&q=yourwebsite.com]) operated by us. Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms.'}</p>
               <div className="privecy-policy-content">
                 <h3>1. Description of Service</h3>
                 <div className='privecy-policy-data-p'>
-                  <p>needan is an AI-powered informational tool that provides potential causes and specialist recommendations based on user-provided symptoms. The Service is for informational and educational purposes only.</p>
+                  <p>needaan is an AI-powered informational tool that provides potential causes and specialist recommendations based on user-provided symptoms. The Service is for informational and educational purposes only.</p>
                 </div>
               </div>
               <div className='privecy-policy-content'>
                 <h3>2. IMPORTANT - NO MEDICAL ADVICE</h3>
                 <div className='privecy-policy-data-p'>
-                  <p>needan is NOT a substitute for professional medical advice, diagnosis, or treatment. The information provided by our AI is generated based on data patterns and is not a medical opinion.</p>
+                  <p>needaan is NOT a substitute for professional medical advice, diagnosis, or treatment. The information provided by our AI is generated based on data patterns and is not a medical opinion.</p>
                   <p>Always seek the advice of a qualified physician or other qualified health provider with any questions you may have regarding a medical condition.
                   </p>
                   <p>Never disregard professional medical advice or delay in seeking it because of something you have read or received from our Service.</p>
@@ -106,14 +106,14 @@ export default function TeremsCondition() {
               <div className='privecy-policy-content'>
                 <h3>4. Intellectual Property</h3>
                 <div className='privecy-policy-data-p'>
-                  <p>The Service and its original content, features, and functionality are and will remain the exclusive property of needan and its licensors.</p>
+                  <p>The Service and its original content, features, and functionality are and will remain the exclusive property of needaan and its licensors.</p>
                 </div>
               </div>
               <div className='privecy-policy-content'>
                 <h3>5. Disclaimer of Warranties & Limitation of Liability</h3>
                 <div className='privecy-policy-data-p'>
                   <p>{'The Service is provided on an "AS IS" and "AS AVAILABLE" basis. We do not warrant that the information provided will be accurate, reliable, complete, or current.'}</p>
-                  <p>In no event shall needan, nor its directors, employees, or partners, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, damages for personal injury, loss of life, or other losses resulting from (i) your access to or use of or inability to access or use the Service; (ii) any information obtained from the Service.</p>
+                  <p>In no event shall needaan, nor its directors, employees, or partners, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, damages for personal injury, loss of life, or other losses resulting from (i) your access to or use of or inability to access or use the Service; (ii) any information obtained from the Service.</p>
                 </div>
               </div>
               <div className='privecy-policy-content'>
@@ -133,7 +133,7 @@ export default function TeremsCondition() {
               <div className='privecy-policy-content'>
                 <h3>8. Contact Us</h3>
                 <div className='privecy-policy-data-p'>
-                  <p>If you have any questions about these Terms, please contact us at [contact@needan.com].
+                  <p>If you have any questions about these Terms, please contact us at [contact@needaan.com].
                   </p>
                 </div>
               </div>

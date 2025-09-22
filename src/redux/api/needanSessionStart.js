@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const URL_PREFIX = process.env.NEXT_PUBLIC_API_URL || 'http://192.168.0.131:8000';
+const URL_PREFIX = process.env.NEXT_PUBLIC_API_URL || 'http://192.168.0.106:8000';
 
 export const needanSessionStart = createApi({
     reducerPath: 'needanSessionStart',

@@ -245,7 +245,7 @@ export default function Home() {
                                 <div className="home-about-content-wrap">
                                     <div className="section-sub-title">Our Purpose</div>
                                     <h2 className="section-title about">Clear Answers from Our AI Symptom Checker</h2>
-                                    <p data-w-id="3f77d7a6-5a54-74bf-8be2-5fb34c970a1c" className="about-description">At needan, our mission is to provide instant clarity. Our AI symptom checker uses advanced technology to analyze your symptoms, demystify medical information, and guide you confidently toward the right care.
+                                    <p data-w-id="3f77d7a6-5a54-74bf-8be2-5fb34c970a1c" className="about-description">At needaan, our mission is to provide instant clarity. Our AI symptom checker uses advanced technology to analyze your symptoms, demystify medical information, and guide you confidently toward the right care.
                                     </p>
                                     <div data-w-id="3f77d7a6-5a54-74bf-8be2-5fb34c970a1e" className="our-service-count-wrap">
                                         {/* <div className="our-service-count-block">
@@ -611,7 +611,7 @@ export default function Home() {
                                     </div>
 
                                 </div>
-                                <div className="department-slider-arrow left w-slider-arrow-left">
+                                {/* <div className="department-slider-arrow left w-slider-arrow-left">
                                     <div className="department-slider-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20"
                                         height="20" viewBox="0 0 20 20" fill="none">
                                         <path
@@ -626,7 +626,7 @@ export default function Home() {
                                             d="M13.3341 10C13.3348 10.1097 13.3138 10.2184 13.2723 10.32C13.2308 10.4215 13.1697 10.5138 13.0925 10.5917L8.09247 15.5917C7.93555 15.7486 7.72272 15.8368 7.50081 15.8368C7.27889 15.8368 7.06606 15.7486 6.90914 15.5917C6.75222 15.4348 6.66406 15.222 6.66406 15C6.66406 14.7781 6.75222 14.5653 6.90914 14.4084L11.3258 10L6.91747 5.59172C6.78095 5.4323 6.70961 5.22723 6.71771 5.0175C6.72581 4.80777 6.81276 4.60882 6.96117 4.46041C7.10958 4.312 7.30853 4.22506 7.51826 4.21696C7.72799 4.20886 7.93305 4.28019 8.09247 4.41672L13.0925 9.41672C13.2464 9.57193 13.3332 9.78143 13.3341 10Z"
                                             fill="currentColor" />
                                     </svg></div>
-                                </div>
+                                </div> */}
                                 <div className="slider-hidden-nav w-slider-nav w-round w-num"></div>
                             </div>
                         </div>
