@@ -20,9 +20,9 @@ export const WebSocketProvider = ({ children }) => {
   const [sessionId, setSessionId] = useState(null);
   const [initialMessage, setInitialMessage] = useState(null);
   const reconnectTimeoutRef = useRef(null);
-  const reconnectAttemptsRef = useRef(0);
+  const reconnectAttemptsRef = useRef(0); 
   const isConnectingRef = useRef(false);
-  const maxReconnectAttempts = 5;
+  const maxReconnectAttempts = 5; 
 
   // Function to connect WebSocket
   const connectWebSocket = useCallback(() => {

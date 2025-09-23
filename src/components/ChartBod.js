@@ -246,7 +246,7 @@ const PDFReportComponent = ({ reportData }) => {
           fontSize: '14px',
           fontWeight: 'bold'
         }}>
-          {/* ⚠️ */}
+          ⚠️
           URGENCY ASSESSMENT: {report.urgency_assessment?.level || 'N/A'}
         </div>
         <div style={{
@@ -273,7 +273,7 @@ const PDFReportComponent = ({ reportData }) => {
           fontSize: '14px',
           fontWeight: 'bold'
         }}>
-          {/* 👤 */}
+          👤
           Patient Information
         </div>
         <div style={{
@@ -317,7 +317,7 @@ const PDFReportComponent = ({ reportData }) => {
           fontSize: '14px',
           fontWeight: 'bold'
         }}>
-          {/* 📊 */}
+          📊
           Primary Symptoms Analysis
         </div>
         <div style={{ padding: '12px' }}>
@@ -356,7 +356,7 @@ const PDFReportComponent = ({ reportData }) => {
               borderRadius: '4px',
               padding: '8px'
             }}>
-              <strong style={{ color: '#6c757d', fontSize: '11px' }}>Duration:</strong>
+              <span style={{ color: '#6c757d', fontSize: '11px' }}>Duration:</span>
               <div style={{ fontSize: '12px' }}>{report.symptom_analysis?.duration || 'Not specified'}</div>
             </div>
             <div style={{
@@ -365,7 +365,7 @@ const PDFReportComponent = ({ reportData }) => {
               borderRadius: '4px',
               padding: '8px'
             }}>
-              <strong style={{ color: '#6c757d', fontSize: '11px' }}>Severity:</strong>
+              <span style={{ color: '#6c757d', fontSize: '11px' }}>Severity:</span>
               <div style={{ fontSize: '12px' }}>{report.symptom_analysis?.severity || 'Not specified'}</div>
             </div>
             <div style={{
@@ -395,7 +395,7 @@ const PDFReportComponent = ({ reportData }) => {
           fontSize: '14px',
           fontWeight: 'bold'
         }}>
-          {/* 🔍 */}
+          🔍
           Possible Conditions
         </div>
         <div style={{ padding: '12px' }}>
@@ -444,7 +444,7 @@ const PDFReportComponent = ({ reportData }) => {
             fontSize: '14px',
             fontWeight: 'bold'
           }}>
-            {/* 📋 */}
+            📋
             Contextual Information
           </div>
           <div style={{ padding: '12px' }}>
@@ -486,6 +486,15 @@ const PDFReportComponent = ({ reportData }) => {
         </div>
       )}
 
+      {/* Page Break Before Recommendations */}
+      <div style={{
+        pageBreakBefore: 'always',
+        breakBefore: 'page',
+        display: 'block',
+        height: '1px',
+        marginBottom: '20px'
+      }}></div>
+
       {/* Recommendations */}
       <div style={{
         backgroundColor: '#ffffff',
@@ -500,7 +509,7 @@ const PDFReportComponent = ({ reportData }) => {
           fontSize: '14px',
           fontWeight: 'bold'
         }}>
-          {/* 💡 */}
+          💡
           Medical Recommendations
         </div>
         <div style={{ padding: '12px' }}>
@@ -731,12 +740,14 @@ const ReportModal = ({ reportData, show, onHide, onDownload, onShare }) => {
                   <span style={{ backgroundColor: getUrgencyColor(report.urgency_assessment?.level), color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '0.8rem', fontWeight: '600', marginRight: '12px' }}>
                     {report.urgency_assessment?.level || 'N/A'} URGENCY
                   </span>
+                  <h6 style={{ fontSize: '16px', fontWeight: '600' }}>
                   Urgency Assessment
+                  </h6>
                 </h5>
               </div>
               <div style={{ padding: '20px' }}>
                 <div style={{ backgroundColor: getUrgencyBg(report.urgency_assessment?.level), border: `1px solid ${getUrgencyColor(report.urgency_assessment?.level)}`, padding: '16px', borderRadius: '6px', color: '#495057' }}>
-                  <strong>Assessment:</strong> {report.urgency_assessment?.reasoning || 'No reasoning provided'}
+                  <span>Assessment:</span> {report.urgency_assessment?.reasoning || 'No reasoning provided'}
                 </div>
               </div>
             </div>
@@ -751,11 +762,11 @@ const ReportModal = ({ reportData, show, onHide, onDownload, onShare }) => {
                 <div style={{ padding: '20px' }}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                     <div style={{ padding: '12px', backgroundColor: '#f8f9fa', borderRadius: '6px', border: '1px solid #e9ecef' }}>
-                      <strong style={{ display: 'block', color: '#6c757d', fontSize: '0.9rem' }}>Age</strong>
+                      <span style={{ display: 'block', color: '#6c757d', fontSize: '0.9rem' }}>Age</span>
                       <span>{report.patient_information?.age || 'Not provided'}</span>
                     </div>
                     <div style={{ padding: '12px', backgroundColor: '#f8f9fa', borderRadius: '6px', border: '1px solid #e9ecef' }}>
-                      <strong style={{ display: 'block', color: '#6c757d', fontSize: '0.9rem' }}>Gender</strong>
+                      <span style={{ display: 'block', color: '#6c757d', fontSize: '0.9rem' }}>Gender</span>
                       <span>{report.patient_information?.gender || 'Not provided'}</span>
                     </div>
                   </div>
@@ -778,14 +789,14 @@ const ReportModal = ({ reportData, show, onHide, onDownload, onShare }) => {
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '8px' }}>
                     <div style={{ background: '#f8f9fa', border: '1px solid #e9ecef', borderRadius: '6px', padding: '10px' }}>
-                      <strong style={{ color: '#6c757d' }}>Duration:</strong> {report.symptom_analysis?.duration || '-'}
+                      <span style={{ color: '#6c757d' }}>Duration:</span> {report.symptom_analysis?.duration || '-'}
                     </div>
                     <div style={{ background: '#f8f9fa', border: '1px solid #e9ecef', borderRadius: '6px', padding: '10px' }}>
-                      <strong style={{ color: '#6c757d' }}>Severity:</strong> {report.symptom_analysis?.severity || '-'}
+                      <span style={{ color: '#6c757d' }}>Severity:</span> {report.symptom_analysis?.severity || '-'}
                     </div>
                   </div>
                   <div style={{ background: '#f8f9fa', border: '1px solid #e9ecef', borderRadius: '6px', padding: '10px', marginTop: '12px' }}>
-                    <strong style={{ color: '#6c757d' }}>Location:</strong> {report.symptom_analysis?.location || 'Not specified'}
+                    <span style={{ color: '#6c757d' }}>Location:</span> {report.symptom_analysis?.location || 'Not specified'}
                   </div>
                 </div>
               </div>
@@ -820,16 +831,16 @@ const ReportModal = ({ reportData, show, onHide, onDownload, onShare }) => {
               <div style={{ padding: '20px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '12px' }}>
                   <div style={{ background: '#f8f9fa', border: '1px solid #e9ecef', borderRadius: '6px', padding: '12px' }}>
-                    <strong>Triggers:</strong>
+                    <span>Triggers:</span>
                     <div>{report.contextual_information?.triggers || 'Not mentioned'}</div>
                   </div>
                   <div style={{ background: '#f8f9fa', border: '1px solid #e9ecef', borderRadius: '6px', padding: '12px' }}>
-                    <strong>Alleviating Factors:</strong>
+                    <span>Alleviating Factors:</span>
                     <div>{report.contextual_information?.alleviating_factors || 'Not mentioned'}</div>
                   </div>
                 </div>
                 <div style={{ background: '#f8f9fa', border: '1px solid #e9ecef', borderRadius: '6px', padding: '12px', marginTop: '12px' }}>
-                  <strong>Associated Symptoms:</strong>
+                  <span>Associated Symptoms:</span>
                   <div>{report.contextual_information?.associated_symptoms || 'Not mentioned'}</div>
                 </div>
               </div>
@@ -843,7 +854,7 @@ const ReportModal = ({ reportData, show, onHide, onDownload, onShare }) => {
               <div style={{ padding: '20px' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px' }}>
                   <div>
-                    <h6 style={{ color: '#007bff', marginBottom: '12px' }}>Immediate Actions</h6>
+                    <h5 style={{ color: '#007bff', marginBottom: '12px',fontSize: '18px',fontWeight: '500' }}>Immediate Actions</h5>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                       {(report.recommendations?.immediate_actions || []).length > 0 ? (
                         report.recommendations.immediate_actions.map((action, index) => (
@@ -858,7 +869,7 @@ const ReportModal = ({ reportData, show, onHide, onDownload, onShare }) => {
                     </ul>
                   </div>
                   <div>
-                    <h6 style={{ color: '#ffc107', marginBottom: '12px' }}>When to Seek Care</h6>
+                    <h5 style={{ color: '#ffc107', marginBottom: '12px',fontSize: '18px',fontWeight: '500' }}>When to Seek Care</h5>
                     <div style={{ backgroundColor: '#f8f9fa', padding: '16px', borderRadius: '6px', border: '1px solid #e9ecef' }}>
                       <small>{report.recommendations?.when_to_seek_care || 'No specific guidance provided'}</small>
                     </div>
@@ -883,7 +894,7 @@ const ReportModal = ({ reportData, show, onHide, onDownload, onShare }) => {
 
             {/* Disclaimer */}
             <div style={{ backgroundColor: '#fff3cd', border: '1px solid #ffc107', borderRadius: '8px', padding: '20px', marginBottom: 0 }}>
-              <h6 style={{ color: '#856404', marginBottom: '8px' }}>⚠️ Important Medical Disclaimer</h6>
+              <h5 style={{ color: '#856404', marginBottom: '8px',fontSize: '18px',fontWeight: '500' }}>⚠️ Important Medical Disclaimer</h5>
               <small style={{ color: '#856404' }}>{report.medical_disclaimer}</small>
             </div>
           </div>
@@ -1442,29 +1453,100 @@ export default function App({ sessionId, onResponse }) {
         allowTaint: true,
         backgroundColor: '#ffffff',
         width: 800,
-        windowWidth: 800
+        windowWidth: 800,
+        height: tempContainer.firstChild.scrollHeight
       });
 
       // Calculate PDF dimensions
       const imgWidth = 210; // A4 width in mm
       const pageHeight = 295; // A4 height in mm
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
 
       // Create PDF
       const pdf = new jsPDF('p', 'mm', 'a4');
-      let position = 0;
+      
+      // Find page break elements to determine where to split
+      const pageBreakElements = tempContainer.querySelectorAll('[style*="pageBreakBefore"], [style*="breakBefore"]');
+      
+      if (pageBreakElements.length > 0) {
+        // Calculate the position of the page break using offsetTop
+        const pageBreakElement = pageBreakElements[0];
+        const breakPosition = pageBreakElement.offsetTop;
+        
+        // Calculate the break position in the canvas
+        const canvasBreakPosition = Math.max(0, (breakPosition / tempContainer.firstChild.scrollHeight) * canvas.height);
+        
+        // Ensure we have a valid break position
+        if (canvasBreakPosition > 0 && canvasBreakPosition < canvas.height) {
+          // First page - content before the break
+          const firstPageHeight = (canvasBreakPosition * imgWidth) / canvas.width;
+          const firstPageCanvas = document.createElement('canvas');
+          const firstPageCtx = firstPageCanvas.getContext('2d');
+          firstPageCanvas.width = canvas.width;
+          firstPageCanvas.height = Math.floor(canvasBreakPosition);
+          
+          if (firstPageCtx && firstPageCanvas.height > 0) {
+            firstPageCtx.drawImage(canvas, 0, 0, canvas.width, Math.floor(canvasBreakPosition), 0, 0, canvas.width, Math.floor(canvasBreakPosition));
+            
+            pdf.addImage(firstPageCanvas.toDataURL('image/png'), 'PNG', 0, 0, imgWidth, firstPageHeight);
+            
+            // Second page - content after the break
+            const remainingHeight = canvas.height - canvasBreakPosition;
+            const secondPageHeight = (remainingHeight * imgWidth) / canvas.width;
+            const secondPageCanvas = document.createElement('canvas');
+            const secondPageCtx = secondPageCanvas.getContext('2d');
+            secondPageCanvas.width = canvas.width;
+            secondPageCanvas.height = Math.floor(remainingHeight);
+            
+            if (secondPageCtx && remainingHeight > 0) {
+              secondPageCtx.drawImage(canvas, 0, Math.floor(canvasBreakPosition), canvas.width, Math.floor(remainingHeight), 0, 0, canvas.width, Math.floor(remainingHeight));
+              
+              pdf.addPage();
+              pdf.addImage(secondPageCanvas.toDataURL('image/png'), 'PNG', 0, 0, imgWidth, secondPageHeight);
+              
+              // Add more pages if the second page is still too long
+              let heightLeft = secondPageHeight - pageHeight;
+              let position = pageHeight - secondPageHeight;
+              
+              while (heightLeft >= 0) {
+                pdf.addPage();
+                pdf.addImage(secondPageCanvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, secondPageHeight);
+                heightLeft -= pageHeight;
+                position -= pageHeight;
+              }
+            }
+          }
+        } else {
+          // Use fallback method if break position is invalid
+          let heightLeft = imgHeight;
+          let position = 0;
 
-      // Add first page
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
-      heightLeft -= pageHeight;
+          pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
 
-      // Add additional pages if needed
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
+          while (heightLeft >= 0) {
+            position = heightLeft - imgHeight;
+            pdf.addPage();
+            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+          }
+        }
+      } else {
+        // Fallback to original method if no page breaks found
+        let heightLeft = imgHeight;
+        let position = 0;
+
+        // Add first page
         pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
+
+        // Add additional pages if needed
+        while (heightLeft >= 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
       }
 
       // Download the PDF
@@ -1623,9 +1705,10 @@ export default function App({ sessionId, onResponse }) {
                 border: '1px solid #e9ecef',
                 padding: '10px',
                 borderRadius: '6px',
-                fontSize: '0.9rem'
+                fontSize: '0.9rem',
+               
               }}>
-                <strong>Age:</strong> {report.patient_information?.age || '-'}
+                <span >Age:</span> {report.patient_information?.age || '-'}
               </div>
               <div style={{
                 backgroundColor: '#f8f9fa',
@@ -1634,7 +1717,7 @@ export default function App({ sessionId, onResponse }) {
                 borderRadius: '6px',
                 fontSize: '0.9rem'
               }}>
-                <strong>Gender:</strong> {report.patient_information?.gender || '-'}
+                <span>Gender:</span> {report.patient_information?.gender || '-'}
               </div>
             </div>
           </div>

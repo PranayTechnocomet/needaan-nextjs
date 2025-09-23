@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react'
 import FooterLogo from '../assets/image/FooterLogo.png'
 import Needan_logo_White from '../assets/image/Needan_logo_White.png'
+import Needan_Logo_White2 from '../assets/image/Needan_Logo_White2.png'
 // import FooterLogo from '../assets/image/Needaan_Logo.png'
 import Image from 'next/image';
 import '../style/global.css'
@@ -15,14 +16,14 @@ export default function Footer() {
     const router = useRouter();
     const year = new Date().getFullYear();
     const [isLoading, setIsLoading] = useState(false);
-    
+
     // Use centralized WebSocket context
-    const { 
-        connectWebSocket, 
-        sessionId, 
-        connectionStatus, 
+    const {
+        connectWebSocket,
+        sessionId,
+        connectionStatus,
         isSessionStarted,
-        error 
+        error
     } = useWebSocket();
 
     // Handle automatic navigation when session is established
@@ -45,16 +46,16 @@ export default function Footer() {
             setIsLoading(false);
         }
     }, [error, isLoading, router]);
-    
+
     const handleSubmit = async () => {
         // Set loading state to true when starting WebSocket connection
         setIsLoading(true);
-        
+
         try {
             // Use centralized WebSocket connection
             console.log("🚀 Starting WebSocket connection from Footer...");
             await connectWebSocket();
-            
+
             // Set a timeout fallback in case session doesn't establish
             setTimeout(() => {
                 if (isLoading) {
@@ -65,7 +66,7 @@ export default function Footer() {
                     setIsLoading(false);
                 }
             }, 10000); // 10 second timeout
-            
+
         } catch (connectionError) {
             console.error("❌ Footer Failed to establish WebSocket connection:", connectionError);
             // Generate fallback ID on connection error
@@ -118,15 +119,15 @@ export default function Footer() {
                     </div>
                 </div>
             )}
-            
+
             <section className="footer-section two">
                 <div className="w-layout-blockcontainer container w-container">
                     <div className="footer-block-wrapper">
                         <div className="call-to-actions-wrap">
                             <h2 className="section-title cta-two">Ready to Turn Worry Into Clarity?</h2>
                             <div className="button-primary-wrap">
-                                <Button 
-                                    onClick={handleSubmit} 
+                                <Button
+                                    onClick={handleSubmit}
                                     className="button-primary white w-button"
                                     disabled={isLoading}
                                     style={{
@@ -142,33 +143,11 @@ export default function Footer() {
                             className="footer-content margin-top-60px">
                             <div id="w-node-_94547a58-0949-cde7-2711-4cc424047d45-b42bc025" className="footer-block"><Link href="/"
                                 className="footer-logo-link-block w-inline-block">
-                               
-                                <Image src={Needan_logo_White} alt="Footer Logo" className="logo-image" width={200} height={45} />
+
+                                <Image src={Needan_logo_White} alt="Footer Logo" className="logo-image" width={189} height={45} />
                             </Link>
                                 <div className="footer-address white-color">Clarity for your health concerns. Instant, anonymous, and free.</div>
-                                {/* <div className="social-block"><a href="https://www.facebook.com/" target="_blank"
-                                    className="footer-social-link-two w-inline-block">
-                                    <img
-                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caef5f57fd0cc188939b25_facebook.svg"
-                                        loading="lazy" alt="Facebook Icon" className="social-image" /><img
-                                        src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caf2bd6ac28d88edb0269b_facebook-white.svg"
-                                        loading="lazy" alt="Facebook Icon" className="social-image-white" /></a><a href="https://twitter.com/"
-                                            target="_blank" className="footer-social-link-two w-inline-block"><img
-                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caf1a53bcc792a5eb37255_twitter.svg"
-                                            loading="lazy" alt="Twitter Icon" className="social-image" /><img
-                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caef749128b2ae1a08b938_twitter-fill.svg"
-                                            loading="lazy" alt="Twitter Icon" className="social-image-white" /></a><a
-                                                href="https://www.linkedin.com/" target="_blank" className="footer-social-link-two w-inline-block"><img
-                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caef3fef54fca04c9327c2_ri_linkedin-fill.svg"
-                                            loading="lazy" alt="Linkdin" className="social-image" /><img
-                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caf2da90c78bb550df41dc_linkedin-white.svg"
-                                            loading="lazy" alt="Linkdin" className="social-image-white" /></a><a href="https://www.instagram.com/"
-                                                target="_blank" className="footer-social-link-two w-inline-block"><img
-                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caf1cdcf665b1c4ff072bb_instagram.svg"
-                                            loading="lazy" alt="Instragram" className="social-image" /><img
-                                            src="https://cdn.prod.website-files.com/65c992c37023d69385565acc/65caf2e967afff45c74d5c2a_instagram-white.svg"
-                                            loading="lazy" alt="Instragram" className="social-image-white" /></a>
-                                </div> */}
+
                             </div>
                             <div className="footer-block">
                                 <div className="footer-title white-color">Menu</div>
