@@ -1,8 +1,4 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
 
-/* Loading spinner animation */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -17,7 +13,6 @@ body {
   transform-origin: center;
 }
 
-/* Bounce animation for typing indicator */
 @keyframes bounce {
   0%, 80%, 100% {
     transform: scale(0);
@@ -82,7 +77,7 @@ body {
   padding: 1rem;
 }
 
-/* Custom scrollbar styles */
+
 .chat-body::-webkit-scrollbar {
   width: 0px !important;
 }
@@ -145,7 +140,7 @@ body {
   background-color: rgba(128, 128, 128, 0.862);
   border-bottom-right-radius: 0;
   margin-right: 0;
-  /* color: black !important; */
+  
 }
 
 .msg-time {
@@ -153,7 +148,7 @@ body {
   margin-top: 5px;
   text-align: right;
   color: rgba(255, 255, 255, 0.85);
-  /* color: black !important; */
+  
 
   display: flex;
   align-items: center;
@@ -254,7 +249,7 @@ body {
 }
 
 .end-chat-btn {
-  /* border: 1px solid black !important; */
+  
   border-radius: 8px !important;
   background-color: rgba(255, 0, 0, 0.863);
   color: white !important;
@@ -263,7 +258,7 @@ body {
 }
 
 .generate-report-btn {
-  /* border: 1px solid black !important; */
+  
   border-radius: 8px !important;
   background-color: rgba(144, 0, 255, 0.863);
   color: white !important;
@@ -284,7 +279,7 @@ body {
   text-transform: capitalize !important;
   border-radius: 40px !important;
   padding: 13px 28px !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
   font-weight: 500 !important;
   line-height: 1 !important;
   text-decoration: none !important;
